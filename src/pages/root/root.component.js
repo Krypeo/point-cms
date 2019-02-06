@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import injectSheet from 'react-jss';
 import { observer } from 'mobx-react';
+import { withRouter } from 'react-router-dom';
 
 import MainLayoutComponent from './layout/layout.component';
 
@@ -18,4 +19,4 @@ class Root extends Component {
   }
 }
 
-export default injectSheet(style)(Root);
+export default injectSheet(style)(withRouter(Root));

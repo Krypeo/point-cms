@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import injectSheet from 'react-jss';
 import { Layout } from 'antd';
 import { observer } from 'mobx-react';
+import { withRouter } from 'react-router-dom';
 
 import LeftSideBarComponent from './components/left-side-bar.component';
 import TopBarComponent from './components/top-bar-component';
@@ -34,4 +35,4 @@ class MainLayout extends Component {
   }
 }
 
-export default injectSheet(style)(MainLayout);
+export default injectSheet(style)(withRouter(MainLayout));

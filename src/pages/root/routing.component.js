@@ -4,6 +4,8 @@ import { observer } from 'mobx-react';
 
 import Home_Component from '../home/home.component';
 
+import Users_Component from '../management/users/users.component';
+
 @observer
 class Routing extends Component {
   render() {
@@ -12,6 +14,8 @@ class Routing extends Component {
         <Route path="/" exact component={Home_Component} />
 
         <Route path="/home" exact component={Home_Component} />
+
+        <Route path="/users" exact component={Users_Component} />
       </Switch>
     )
   }
