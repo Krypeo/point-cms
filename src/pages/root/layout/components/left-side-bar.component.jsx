@@ -1,12 +1,14 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import injectSheet from 'react-jss';
 import { Layout, Menu, Icon, } from 'antd';
+import { observer } from 'mobx-react';
 
 const { SubMenu } = Menu;
 const { Sider } = Layout;
 const style = [];
 
-class LeftSideBarComponent extends PureComponent {
+@observer
+class LeftSideBarComponent extends Component {
   state = {
     hide: false,
   };

@@ -1,10 +1,12 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import injectSheet from 'react-jss';
 import { Breadcrumb, Icon } from 'antd';
+import { observer } from 'mobx-react';
 
 const style = [];
 
-class BreadcrumbComponent extends PureComponent {
+@observer
+class BreadcrumbComponent extends Component {
   render() {
     return (
       <Breadcrumb style={{ padding: '16px' }}>

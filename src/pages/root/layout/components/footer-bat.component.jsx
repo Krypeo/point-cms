@@ -1,11 +1,13 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import injectSheet from 'react-jss';
 import { Layout } from 'antd';
+import { observer } from 'mobx-react';
 
 const { Footer } = Layout;
 const style = [];
 
-class FooterComponent extends PureComponent {
+@observer
+class FooterComponent extends Component {
   render() {
     return (
       <Footer style={{ textAlign: 'center' }}>
