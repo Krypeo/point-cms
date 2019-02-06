@@ -4,10 +4,9 @@ import { observer, inject } from 'mobx-react';
 
 import style from './home.style';
 
-@observer @inject('settings')
+@inject('settings') @observer
 class Home extends Component {
   render() {
-    console.log(this.props);
 
     return(
       <div>Hello Home</div>
