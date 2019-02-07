@@ -1,5 +1,4 @@
 import { observable, computed } from 'mobx';
-//import env from '../lib/env.service';
 
 const LOG_KEY = 'SETTINGS';
 const PAGINATION_STORAGE_KEY = 'PAGINATION';

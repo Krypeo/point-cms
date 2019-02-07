@@ -3,13 +3,19 @@ import injectSheet from 'react-jss';
 import { observer, inject } from 'mobx-react';
 
 import style from './users.style';
+import store from './users.store';
 
 @inject('settings') @observer
 class Users extends Component {
-  render() {
 
-    return(
-      <div>Hello Users</div>
+  componentDidMount() {
+    store.refresh();
+  }
+
+  render() {
+    console.log(this.props.settings);
+    return (
+      <div onClick={() => this.push()}>Hello Users</div>
     );
   }
 }
