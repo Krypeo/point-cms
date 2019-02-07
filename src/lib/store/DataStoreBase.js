@@ -25,8 +25,8 @@ export class DataStoreBase {
     } else {
       keys = Object.keys(toJS(this._data));
       fullData = Object.keys(toJS(this._data)).map((key) => {
-      return { key: key, ...toJS(this._data)[key] };
-    })
+        return { key: key, ...toJS(this._data)[key] };
+      })
     }
 
     this._fullData = fullData;
@@ -71,6 +71,7 @@ export class DataStoreBase {
   @computed get keys() {
     return toJS(this._keys);
   };
+
   @computed get fullData() {
     return toJS(this._fullData);
   }

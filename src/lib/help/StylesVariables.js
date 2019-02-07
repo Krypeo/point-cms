@@ -11,5 +11,5 @@ export const dangerRow = {backgroundColor: colors.dangerRowColor};
 export const iconButton = {transition: 'color .3s', margin: '0 6px', minWidth: '16px', cursor: 'pointer', '&:hover': {color: colors.infoColor}};
 export const successIcon = {color: colors.successColor, marginLeft: 'calc(50% - 7px)'};
 export const warningIcon = {color: colors.warningColor, transition: 'color .3s', margin: '0 6px', minWidth: '16px', cursor: 'pointer', '&:hover': {color: colors.infoColor}};
-export const dangerIcon = {color: colors.dangerColor};
+export const dangerIcon = {color: colors.dangerColor, margin: '0 6px'};
 export const exportIcon = {color: colors.exportColor, transition: 'color .3s', margin: '0 6px', minWidth: '16px', cursor: 'pointer', '&:hover': {color: colors.infoColor}};

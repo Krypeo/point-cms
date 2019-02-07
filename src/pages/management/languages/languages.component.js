@@ -1,37 +1,83 @@
 import React, { Component } from 'react';
 import injectSheet from 'react-jss';
 import { observer, inject } from 'mobx-react';
-import { Table, message } from 'antd';
+import { Table, Modal, message } from 'antd';
+import { ModularConfig, modularDialog } from '@adler-it/reactant-modularis';
 
+import { ToLowerCase } from '../../../lib/help/GlobalFunctions';
 import style from './languages.style';
 import store from './languages.store';
 import { columns } from './languages.columns';
 
-import EditModal from './components/edit-modal.component';
-
-@inject('settings') @observer
+@inject('settings') @inject('language') @observer
 class Languages extends Component {
-  state = {
-    showEdit: false
-  }
-
   handleTableChange = () => {
     store.refresh();
   };
 
   handleInsert = () => {
-    const data = {
-      Name: 'login',
-      Cs_CZ: 'Přihlásit',
-      En_EN: 'Login'
-    }
-    try {
-      store.insert(data);
-      message.success('Zaznam byl pridan');
-    } catch (err) {
-      console.error(err);
-    }
+    const config = new ModularConfig()
+      .string({ key: 'Name', label: 'Název' })
+      .string({ key: 'Cs_CZ', label: 'Česky' })
+      .string({ key: 'En_EN', label: 'Anglicky' })
+
+    modularDialog('Vlozit', config, '30%')
+      .onResult(async (result, dialog) => {
+        result.Name = ToLowerCase(result.Name)
+        dialog.load();
+        try {
+          await store.insert(result);
+          message.success('Vlozeno');
+          dialog.close();
+          store.refresh();
+        } catch(err) {
+          message.error(err);
+          console.error(err);
+        } finally {
+          dialog.load(false);
+        }
+      })
   };
+
+  handleEdit = (row) => {
+    const config = new ModularConfig()
+      .string({ key: 'Name', label: 'Název', defaultValue: row.Name })
+      .string({ key: 'Cs_CZ', label: 'Česky', defaultValue: row.Cs_CZ })
+      .string({ key: 'En_EN', label: 'Anglicky', defaultValue: row.En_EN })
+
+    modularDialog('Vlozit', config, '30%')
+      .onResult(async (result, dialog) => {
+        dialog.load();
+        try {
+          await store.update(row.key, result);
+          message.success('Upraveno');
+          dialog.close();
+          store.refresh();
+        } catch(err) {
+          message.error(err);
+          console.error(err);
+        } finally {
+          dialog.load(false);
+        }
+      })
+  };
+
+  handleRemove = (row) => {
+		Modal.confirm({
+			title: 'Odstranit?',
+			onOk: async () => {
+				try {
+					await store.remove(row.key);
+					message.success('Odstraneno');
+          store.refresh();
+				} catch (err) {
+					console.error(err);
+					message.error(`${err.name}: ${err.message}`)
+				}
+			}
+		});
+	};
+
 
   componentDidMount() {
     store.refresh();
@@ -39,14 +85,13 @@ class Languages extends Component {
 
   render() {
     const { classes } = this.props;
-    const { showEdit } = this.state;
 
     return (
       <div>
-        <EditModal showEdit={showEdit} />
         <Table
           dataSource={store.fullData}
           columns={columns(this, classes)}
+          pagination={{ pageSize: 13 }}
           loading={store.loading}
           size={this.props.settings.tableSize}
           onChange={this.handleTableChange}

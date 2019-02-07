@@ -11,12 +11,12 @@ export const columns = (ref, classes) => [
     width: '300px'
   },
   {
-    key: 'Cz',
+    key: 'Cs_CZ',
     title: 'CZ',
     dataIndex: 'Cs_CZ'
   },
   {
-    key: 'En',
+    key: 'En_EN',
     title: 'EN',
     dataIndex: 'En_EN'
   },
@@ -28,12 +28,12 @@ export const columns = (ref, classes) => [
         <Icon onClick={() => store.refresh()} type="redo" className={classes.iconButton} />
       </div>
     ),
-    render: () => (
+    render: (row) => (
       <div>
-        <Icon onClick={() => store.refresh()} type="edit" className={classes.warningIcon} />
-          <Icon onClick={() => store.refresh()} type="delete" className={classes.dangerIcon} />
+        <Icon onClick={() => ref.handleEdit(row)} type="edit" className={classes.warningIcon} />
+        <Icon onClick={() => ref.handleRemove(row)} type="delete" className={classes.dangerIcon} />
       </div>
     ),
-    width: '90px'
+    width: '75px'
   }
 ];
