@@ -33,7 +33,8 @@ class LeftSideBarComponent extends Component {
             key="management"
             title={<span><Icon type="user" /><span>Management</span></span>}
           >
-            <Menu.Item key="3">{<a href="/#/users">Users</a>}</Menu.Item>
+            <Menu.Item key="2">{<a href="/#/users">Users</a>}</Menu.Item>
+            <Menu.Item key="3">{<a href="/#/languages">Languages</a>}</Menu.Item>
           </SubMenu>
         </Menu>
       </Sider>

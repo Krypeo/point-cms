@@ -1,7 +1,9 @@
 import settings from './settings.store';
+import language from './language.store';
 
 const stores = {
-	settings
+	settings,
+	language
 }
 
 export default stores;
