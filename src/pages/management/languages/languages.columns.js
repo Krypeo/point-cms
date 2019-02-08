@@ -3,21 +3,22 @@ import { Icon } from 'antd';
 
 import store from './languages.store';
 
-export const columns = (ref, classes) => [
+export const columns = (ref, locString, classes) => [
   {
     key: 'Name',
-    title: 'Name',
+    title: locString.label.Name,
     dataIndex: 'Name',
     width: '300px'
   },
   {
     key: 'Cs_CZ',
-    title: 'CZ',
-    dataIndex: 'Cs_CZ'
+    title: locString.label.Czech,
+    dataIndex: 'Cs_CZ',
+    width: '530px'
   },
   {
     key: 'En_EN',
-    title: 'EN',
+    title: locString.label.English,
     dataIndex: 'En_EN'
   },
   {

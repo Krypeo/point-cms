@@ -1,0 +1,86 @@
+{
+  "Menu": {
+    "Home": "Domů",
+    "Management": {
+      "Name": "Správa",
+      "User_Management": "Uživatelé",
+      "Language_Management": "Jazyky"
+    },
+    "Articles": {
+      "Name": "Články",
+      "Overview_Articles": "Přehled"
+    }
+  },
+  "Global": {
+    "Insert": "Vložit záznam",
+    "Inserted": "Záznam vložen",
+    "Update": "Upravit záznam",
+    "Updated": "Záznam upraven",
+    "Remove": "Odstranit",
+    "Removed": "Záznam odstraněn",
+    "Position_Remove": "Odstranit pozici",
+    "Position_Removed": "Pozice odstraněna",
+    "Validated": "Záznam je platný",
+    "Invalidated": "Záznam je zneplatněn",
+    "Generating": "Generuji",
+    "Generated": "Vygenerováno",
+    "Sending_Data": "Odesílám data",
+    "Send": "Odeslat",
+    "Sent": "Odesláno",
+    "Change": "Změnit",
+    "Changed": "Změněno",
+    "Save": "Uložit",
+    "Saved": "Uloženo",
+    "Refresh": "Aktualizovat",
+    "Refreshing": "Aktualizuji",
+    "Refreshed": "Aktualizováno",
+    "Cancellation": "Stornovat",
+    "Cancelled": "Stornováno",
+    "Detail": "Detail",
+    "Sync": "Synchronizovat",
+    "Synchronized": "Synchronizováno",
+    "Export_Xls": "Export XLS",
+    "Exported": "Exportováno",
+    "Search": "Vyhledat",
+    "Show_Columns": "Zobrazit sloupce",
+    "Showed": "Zobrazeno",
+    "Not_Specified": "Neurčeno",
+    "Specified": "Určeno",
+    "sentences": {
+      "Required": "Toto pole je vyžadováno!"
+    }
+  },
+  "Management": {
+    "Users_Management": {
+      "label": {
+        "Username": "Přihlašovací jméno",
+        "Name": "Jméno",
+        "Surname": "Příjmení",
+        "Email": "E-Mail",
+        "Register_Date": "Datum registrace",
+        "Active": "Aktívni",
+        "Administrator": "Administrátor"
+      }
+    },
+    "Language_Management": {
+      "label": {
+        "Czech": "Čeština",
+        "English": "Angličtina",
+        "Name": "Název"
+      }
+    }
+  },
+  "Articles": {
+    "Overview_Articles": {
+      "label": {
+        "Header": "Nadpis",
+        "Categories": "Kategorie",
+        "Date": "Datum",
+        "Created": "Vytvořeno",
+        "Publish": "Zveřejněno",
+        "Author": "Autor",
+        "Published": "Zveřejněno"
+      }
+    }
+  }
+}

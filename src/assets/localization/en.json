@@ -1,0 +1,86 @@
+{
+  "Menu": {
+    "Home": "Home",
+    "Management": {
+      "Name": "Management",
+      "User_Management": "Users",
+      "Language_Management": "Languages"
+    },
+    "Articles": {
+      "Name": "Articles",
+      "Overview_Articles": "Overview"
+    }
+  },
+  "Global": {
+    "Insert": "Insert",
+    "Inserted": "Inserted",
+    "Update": "Update",
+    "Updated": "Updated",
+    "Remove": "Remove",
+    "Removed": "Removed",
+    "Position_Remove": "Remove position",
+    "Position_Removed": "Position removed",
+    "Validated": "Validated",
+    "Invalidated": "Invalidated",
+    "Generating": "Generating",
+    "Generated": "Generated",
+    "Sending_Data": "Sending data",
+    "Send": "Send",
+    "Sent": "Sent",
+    "Change": "Change",
+    "Changed": "Changed",
+    "Save": "Save",
+    "Saved": "Saved",
+    "Refresh": "Refresh",
+    "Refreshing": "Refreshing",
+    "Refreshed": "Refreshed",
+    "Cancellation": "Cancel",
+    "Cancelled": "Cancelled",
+    "Detail": "Detail",
+    "Sync": "Synchronize",
+    "Synchronized": "Synchronized",
+    "Export_Xls": "Export XLS",
+    "Exported": "Exported",
+    "Search": "Search",
+    "Show_Columns": "Show columns",
+    "Showed": "Showed",
+    "Not_Specified": "Not specified",
+    "Specified": "Specified",
+    "sentences": {
+      "Required": "This field is required!"
+    }
+  },
+  "Management": {
+    "Users_Management": {
+      "label": {
+        "Username": "Username",
+        "Name": "Name",
+        "Surname": "Surname",
+        "Email": "E-Mail",
+        "Register_Date": "Register date",
+        "Active": "Active",
+        "Administrator": "Administrator"
+      }
+    },
+    "Language_Management": {
+      "label": {
+        "Name": "Name",
+        "Czech": "Czech",
+        "English": "English"
+      }
+    }
+  },
+  "Articles": {
+    "Overview_Articles": {
+      "label": {
+        "Header": "Header",
+        "Categories": "Categories",
+        "Date": "Date",
+        "Created": "Created",
+        "Publish": "Publish",
+        "Author": "Author",
+        "Published": "Published"
+      }
+    }
+  }
+}

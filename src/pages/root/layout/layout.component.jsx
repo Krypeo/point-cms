@@ -7,7 +7,6 @@ import { withRouter } from 'react-router-dom';
 import LeftSideBarComponent from './components/left-side-bar.component';
 import TopBarComponent from './components/top-bar-component';
 import FooterComponent from './components/footer-bat.component';
-import BreadcrumbComponent from './components/breadcrumb-component';
 import Routing from '../routing.component';
 
 const { Content } = Layout;
@@ -22,8 +21,7 @@ class MainLayout extends Component {
         <LeftSideBarComponent />
         <Layout>
           <TopBarComponent />
-          <BreadcrumbComponent />
-          <Content style={{ margin: '0 16px' }}>
+          <Content style={{ margin: '16px' }}>
             <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
               <Routing />
             </div>

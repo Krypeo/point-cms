@@ -1,22 +1,34 @@
 import React, { Component } from 'react';
 import injectSheet from 'react-jss';
 import { Layout, Menu, Icon, } from 'antd';
-import { observer } from 'mobx-react';
+import { inject, observer } from 'mobx-react';
 
 const { SubMenu } = Menu;
 const { Sider } = Layout;
 const style = [];
 
-@observer
+@inject('loc') @observer
 class LeftSideBarComponent extends Component {
   state = {
     hide: false,
   };
 
+  componentDidMount() {
+    this.mounted = true;
+    this.props.loc.subscribe(this);
+  }
+  componentWillUnmount() {
+    this.mounted = false;
+    this.props.loc.unsubscribe(this);
+  }
+
   handleHide = (hide) => {
     this.setState({ hide });
   }
   render() {
+    const { loc } = this.props;
+    const locStringMenu = loc.strings.Menu;
+    // /articles/overview-articles
 
     return (
       <Sider
@@ -24,18 +36,22 @@ class LeftSideBarComponent extends Component {
         collapsed={this.state.hide}
         onCollapse={this.handleHide}
       >
-        <div className="logo" />
+        <div>
+          <h1 style={{ color: '#FFFFFF', textAlign: 'center' }}>Point CMS</h1>
+        </div>
         <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-          <Menu.Item key="1">
-            <a href="/#/home"><Icon type="home" /><span>Home</span></a>
-          </Menu.Item>
-          <SubMenu
-            key="management"
-            title={<span><Icon type="user" /><span>Management</span></span>}
-          >
-            <Menu.Item key="2">{<a href="/#/users">Users</a>}</Menu.Item>
-            <Menu.Item key="3">{<a href="/#/languages">Languages</a>}</Menu.Item>
+
+          <Menu.Item key="home"><a href="/#/home"><Icon type="home" /><span>{locStringMenu.Home}</span></a></Menu.Item>
+
+          <SubMenu key="management" title={<span><Icon type="tool" /><span>{locStringMenu.Management.Name}</span></span>}>
+            <Menu.Item key="management-users">{<a href="/#/management/users">{locStringMenu.Management.User_Management}</a>}</Menu.Item>
+            <Menu.Item key="management-languages">{<a href="/#/management/languages">{locStringMenu.Management.Language_Management}</a>}</Menu.Item>
           </SubMenu>
+
+          <SubMenu key="articles" title={<span><Icon type="read" /><span>{locStringMenu.Articles.Name}</span></span>}>
+            <Menu.Item key="articles-overview">{<a href="/#/articles/overview">{locStringMenu.Articles.Overview_Articles}</a>}</Menu.Item>
+          </SubMenu>
+
         </Menu>
       </Sider>
     );

@@ -7,16 +7,19 @@ import Home_Component from '../home/home.component';
 import Users_Component from '../management/users/users.component';
 import Languages_Component from '../management/languages/languages.component';
 
+import Overview_Component from '../articles/overview/overview.component';
+
 @observer
 class Routing extends Component {
   render() {
     return (
       <Switch>
         <Route path="/" exact component={Home_Component} />
-        <Route path="/home" exact component={Home_Component} />
 
-        <Route path="/users" exact component={Users_Component} />
-        <Route path="/languages" exact component={Languages_Component} />
+        <Route path="/management/users" exact component={Users_Component} />
+        <Route path="/management/languages" exact component={Languages_Component} />
+
+        <Route path="/articles/overview" exact component={Overview_Component} />
       </Switch>
     )
   }

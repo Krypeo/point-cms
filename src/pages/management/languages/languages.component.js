@@ -2,35 +2,39 @@ import React, { Component } from 'react';
 import injectSheet from 'react-jss';
 import { observer, inject } from 'mobx-react';
 import { Table, Modal, message } from 'antd';
-import { ModularConfig, modularDialog } from '@adler-it/reactant-modularis';
+import { ModularConfig, modularDialog, validators } from '@adler-it/reactant-modularis';
 
 import { ToLowerCase } from '../../../lib/help/GlobalFunctions';
+import { singleTableHeader } from '../../../lib/help/GlobalVariables';
 import style from './languages.style';
 import store from './languages.store';
 import { columns } from './languages.columns';
 
-@inject('settings') @inject('language') @observer
+@inject('settings') @inject('loc') @observer
 class Languages extends Component {
   handleTableChange = () => {
     store.refresh();
   };
 
   handleInsert = () => {
-    const config = new ModularConfig()
-      .string({ key: 'Name', label: 'Název' })
-      .string({ key: 'Cs_CZ', label: 'Česky' })
-      .string({ key: 'En_EN', label: 'Anglicky' })
+    const locString = this.props.loc.strings.Management.Language_Management;
+    const locStringGlobal = this.props.loc.strings.Global;
 
-    modularDialog('Vlozit', config, '30%')
+    const config = new ModularConfig()
+      .string({ key: 'Name', label: locString.label.Name, validators: [validators.required(locStringGlobal.sentences.Required)] })
+      .string({ key: 'Cs_CZ', label: locString.label.Czech, validators: [validators.required(locStringGlobal.sentences.Required)] })
+      .string({ key: 'En_EN', label: locString.label.English, validators: [validators.required(locStringGlobal.sentences.Required)] })
+
+    modularDialog(locStringGlobal.Insert, config, '30%')
       .onResult(async (result, dialog) => {
         result.Name = ToLowerCase(result.Name)
         dialog.load();
         try {
           await store.insert(result);
-          message.success('Vlozeno');
+          message.success(locStringGlobal.Inserted);
           dialog.close();
           store.refresh();
-        } catch(err) {
+        } catch (err) {
           message.error(err);
           console.error(err);
         } finally {
@@ -40,20 +44,23 @@ class Languages extends Component {
   };
 
   handleEdit = (row) => {
-    const config = new ModularConfig()
-      .string({ key: 'Name', label: 'Název', defaultValue: row.Name })
-      .string({ key: 'Cs_CZ', label: 'Česky', defaultValue: row.Cs_CZ })
-      .string({ key: 'En_EN', label: 'Anglicky', defaultValue: row.En_EN })
+    const locString = this.props.loc.strings.Management.Language_Management;
+    const locStringGlobal = this.props.loc.strings.Global;
 
-    modularDialog('Vlozit', config, '30%')
+    const config = new ModularConfig()
+      .string({ key: 'Name', label: locString.label.Name, defaultValue: row.Name, validators: [validators.required(locStringGlobal.sentences.Required)] })
+      .string({ key: 'Cs_CZ', label: locString.label.Czech, defaultValue: row.Cs_CZ, validators: [validators.required(locStringGlobal.sentences.Required)] })
+      .string({ key: 'En_EN', label: locString.label.English, defaultValue: row.En_EN, validators: [validators.required(locStringGlobal.sentences.Required)] })
+
+    modularDialog(locStringGlobal.Update, config, '30%')
       .onResult(async (result, dialog) => {
         dialog.load();
         try {
           await store.update(row.key, result);
-          message.success('Upraveno');
+          message.success(locStringGlobal.Updated);
           dialog.close();
           store.refresh();
-        } catch(err) {
+        } catch (err) {
           message.error(err);
           console.error(err);
         } finally {
@@ -63,39 +70,48 @@ class Languages extends Component {
   };
 
   handleRemove = (row) => {
-		Modal.confirm({
-			title: 'Odstranit?',
-			onOk: async () => {
-				try {
-					await store.remove(row.key);
-					message.success('Odstraneno');
-          store.refresh();
-				} catch (err) {
-					console.error(err);
-					message.error(`${err.name}: ${err.message}`)
-				}
-			}
-		});
-	};
+    const locStringGlobal = this.props.loc.strings.Global;
 
+    Modal.confirm({
+      title: `${locStringGlobal.Remove}?`,
+      onOk: async () => {
+        try {
+          await store.remove(row.key);
+          message.success(locStringGlobal.Removed);
+          store.refresh();
+        } catch (err) {
+          console.error(err);
+          message.error(`${err.name}: ${err.message}`)
+        }
+      }
+    });
+  };
 
   componentDidMount() {
+    this.mounted = true;
+    this.props.loc.subscribe(this);
     store.refresh();
+  }
+  componentWillUnmount() {
+    this.mounted = false;
+    this.props.loc.unsubscribe(this);
   }
 
   render() {
-    const { classes } = this.props;
+    const { classes, loc } = this.props;
 
     return (
       <div>
         <Table
           dataSource={store.fullData}
-          columns={columns(this, classes)}
-          pagination={{ pageSize: 13 }}
+          columns={columns(this, loc.strings.Management.Language_Management, classes)}
+          pagination={{ pageSize: 20 }}
           loading={store.loading}
           size={this.props.settings.tableSize}
           onChange={this.handleTableChange}
+          scroll={{ y: singleTableHeader }}
           key={row => row.key}
+          bordered
         />
       </div>
     );
