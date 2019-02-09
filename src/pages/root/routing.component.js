@@ -3,6 +3,7 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 import { observer } from 'mobx-react';
 
 import NotFound from './not-found.component';
+import Login_Component from './login.component';
 
 import Home_Component from '../home/home.component';
 
@@ -19,6 +20,7 @@ class Routing extends Component {
     return (
       <Switch>
         <Route path="/" exact component={Home_Component} />
+        <Route path="/" exact component={Login_Component} />
 
         <Route path="/management/users" exact component={Users_Component} />
         <Route path="/management/languages" exact component={Languages_Component} />
