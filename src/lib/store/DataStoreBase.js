@@ -63,7 +63,7 @@ export class DataStoreBase {
         .catch(reject);
     });
   };
-
+  
   @computed get data() {
     return toJS(this._data);
   };

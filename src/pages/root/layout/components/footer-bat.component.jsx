@@ -11,7 +11,7 @@ class FooterComponent extends Component {
   render() {
     return (
       <Footer style={{ textAlign: 'center' }}>
-        Point CMS ©2019 Created by Lukas Kaleta
+        Point CMS ©2019 Created by Lukáš Kaleta
       </Footer>
     );
   }

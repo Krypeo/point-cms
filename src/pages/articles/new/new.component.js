@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 import injectSheet from 'react-jss';
 import { Input } from 'antd';
-import { Row, Col, DatePicker, Button } from 'antd';
+import { Row, Col, DatePicker, Button, Tag } from 'antd';
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import draftToHtml from 'draftjs-to-html';
@@ -14,9 +14,8 @@ import store from './new.store';
 @inject('settings') @inject('loc') @observer
 class New extends Component {
   state = {
-    newArticle: {
-      Categories: []
-    },
+    newArticle: {},
+    selectedCategories: [],
     editorState: EditorState.createEmpty(),
     articleEditorToApi: ''
   }
@@ -33,6 +32,14 @@ class New extends Component {
     this.setState({ newArticle: newArticle });
   };
 
+  handleChangeCategories(tag, checked) {
+    const { selectedCategories } = this.state;
+    const nextSelectedCategory = checked
+      ? [...selectedCategories, tag]
+      : selectedCategories.filter(t => t !== tag);
+    this.setState({ selectedCategories: nextSelectedCategory });
+  }
+
   handleChangeArticle = (editorState) => {
     this.setState({
       editorState,
@@ -44,17 +51,18 @@ class New extends Component {
     this.mounted = true;
     this.props.loc.subscribe(this);
     store.refresh();
-  }
+  };
   componentWillUnmount() {
     this.mounted = false;
     this.props.loc.unsubscribe(this);
-  }
+  };
 
   render() {
     const { loc, classes } = this.props;
-    const { editorState } = this.state;
+    const { editorState, selectedCategories } = this.state;
     const locString = loc.strings.Articles.New_Articles;
     const locStringGlobal = loc.strings.Global;
+    const CategoriesList = store.categories.map(item => item.Category);
 
     return (
       <Row>
@@ -81,8 +89,19 @@ class New extends Component {
               onEditorStateChange={(editorState) => this.handleChangeArticle(editorState)}
             />
           </div>
-          <Row>
+          <Row style={{ marginTop: '8px' }}>
             <Col>
+              <h4 style={{ marginRight: '8px', display: 'inline' }}>{`${locString.label.Categories}:`}</h4>
+              {CategoriesList.map(tag => (
+                <Tag.CheckableTag
+                  style={{ fontSize: '14px' }}
+                  key={tag}
+                  checked={selectedCategories.indexOf(tag) > -1}
+                  onChange={checked => this.handleChangeCategories(tag, checked)}
+                >
+                  {tag}
+                </Tag.CheckableTag>
+              ))}
             </Col>
           </Row>
           <Row>
