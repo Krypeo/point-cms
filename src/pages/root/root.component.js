@@ -26,7 +26,7 @@ class Root extends Component {
       <div>
         {
           this.state.user
-            ? (<MainLayoutComponent />)
+            ? (<MainLayoutComponent uid={this.state.uid} />)
             : (<LoginComponent />)
         }
       </div>

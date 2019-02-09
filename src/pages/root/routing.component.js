@@ -20,7 +20,7 @@ class Routing extends Component {
     return (
       <Switch>
         <Route path="/" exact component={Home_Component} />
-        <Route path="/" exact component={Login_Component} />
+        <Route path="/login" exact component={Login_Component} />
 
         <Route path="/management/users" exact component={Users_Component} />
         <Route path="/management/languages" exact component={Languages_Component} />

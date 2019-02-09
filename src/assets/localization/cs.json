@@ -49,8 +49,27 @@
     "Not_Specified": "Neurčeno",
     "Specified": "Určeno",
     "Clear": "Vyčistit",
+    "Settings": "Nastavení",
+    "Logout": "Odhlásit",
+    "Email": "E-Mail",
+    "Password": "Heslo",
     "sentences": {
       "Required": "Toto pole je vyžadováno!"
+    }
+  },
+  "Login": {
+    "words": {
+      "Login": "Přihlásit",
+      "Logout": "Ohlásit",
+      "Forget_Password": "Zapomenuté heslo",
+      "Logging_Off": "Odhlášuji",
+      "Logging_On": "Přihlášuji"
+    },
+    "sentences": {
+      "User_Was_Logout": "Uživatel byl úspěšně odhlášený!",
+      "User_Was_Login": "Uživatel byl úspěšně přihlášený!",
+      "Please_Check_The_Login": "Chybné přihlášení! Prosím zkontrolujte vaše přihlašovací údaje!",
+      "Administration_Login": "Přihlášení do administrace"
     }
   },
   "Management": {

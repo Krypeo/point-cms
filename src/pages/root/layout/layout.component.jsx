@@ -16,11 +16,13 @@ const style = [];
 class MainLayout extends Component {
 
   render() {
+    const { uid } = this.props;
+
     return (
       <Layout style={{ minHeight: '100vh' }}>
         <LeftSideBarComponent />
         <Layout>
-          <TopBarComponent />
+          <TopBarComponent uid={uid} />
           <Content style={{ margin: '16px' }}>
             <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
               <Routing />
