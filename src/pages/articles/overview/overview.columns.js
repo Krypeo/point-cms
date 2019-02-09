@@ -65,8 +65,8 @@ export const columns = (ref, locString, classes) => [
     ),
     render: (row) => (
       <div>
-        <Icon onClick={() => ref.handleEdit(row)} type="edit" className={classes.warningIcon} />
-        <Icon onClick={() => ref.handleRemove(row)} type="delete" className={classes.dangerIcon} />
+        <Icon type="eye" className={classes.iconButton} />
+        <Icon type="delete" className={classes.dangerIcon} />
       </div>
     ),
     width: '75px'

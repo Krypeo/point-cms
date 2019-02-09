@@ -4,11 +4,13 @@
     "Management": {
       "Name": "Management",
       "User_Management": "Users",
-      "Language_Management": "Languages"
+      "Language_Management": "Languages",
+      "Categories_Management": "Categories"
     },
     "Articles": {
       "Name": "Articles",
-      "Overview_Articles": "Overview"
+      "Overview_Articles": "Overview",
+      "New_Articles": "New"
     }
   },
   "Global": {
@@ -46,6 +48,7 @@
     "Showed": "Showed",
     "Not_Specified": "Not specified",
     "Specified": "Specified",
+    "Clear": "Clear",
     "sentences": {
       "Required": "This field is required!"
     }
@@ -68,12 +71,29 @@
         "Czech": "Czech",
         "English": "English"
       }
+    },
+    "Categories_Management": {
+      "label": {
+        "Category": "Category"
+      }
     }
   },
   "Articles": {
     "Overview_Articles": {
       "label": {
         "Header": "Header",
+        "Categories": "Categories",
+        "Date": "Date",
+        "Created": "Created",
+        "Publish": "Publish",
+        "Author": "Author",
+        "Published": "Published"
+      }
+    },
+    "New_Articles": {
+      "label": {
+        "Header": "Header",
+        "Article": "Article",
         "Categories": "Categories",
         "Date": "Date",
         "Created": "Created",

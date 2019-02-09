@@ -1,9 +1,9 @@
 import DataStoreBase from '../../../lib/store/DataStoreBase';
 
-class OverviewStore extends DataStoreBase {
+class NewStore extends DataStoreBase {
   constructor() {
     super('Articles');
   }
 }
 
-export default new OverviewStore();
+export default new NewStore();

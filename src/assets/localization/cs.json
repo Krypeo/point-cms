@@ -4,11 +4,13 @@
     "Management": {
       "Name": "Správa",
       "User_Management": "Uživatelé",
-      "Language_Management": "Jazyky"
+      "Language_Management": "Jazyky",
+      "Categories_Management": "Kategorie"
     },
     "Articles": {
       "Name": "Články",
-      "Overview_Articles": "Přehled"
+      "Overview_Articles": "Přehled",
+      "New_Articles": "Nový"
     }
   },
   "Global": {
@@ -46,6 +48,7 @@
     "Showed": "Zobrazeno",
     "Not_Specified": "Neurčeno",
     "Specified": "Určeno",
+    "Clear": "Vyčistit",
     "sentences": {
       "Required": "Toto pole je vyžadováno!"
     }
@@ -68,12 +71,29 @@
         "English": "Angličtina",
         "Name": "Název"
       }
+    },
+    "Categories_Management": {
+      "label": {
+        "Category": "Kategorie"
+      }
     }
   },
   "Articles": {
     "Overview_Articles": {
       "label": {
         "Header": "Nadpis",
+        "Categories": "Kategorie",
+        "Date": "Datum",
+        "Created": "Vytvořeno",
+        "Publish": "Zveřejněno",
+        "Author": "Autor",
+        "Published": "Zveřejněno"
+      }
+    },
+    "New_Articles": {
+      "label": {
+        "Header": "Nadpis",
+        "Article": "Článek",
         "Categories": "Kategorie",
         "Date": "Datum",
         "Created": "Vytvořeno",
