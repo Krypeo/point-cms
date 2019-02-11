@@ -76,6 +76,7 @@
   "Management": {
     "Users_Management": {
       "label": {
+        "Avatar": "Avatar",
         "Name": "Name",
         "Surname": "Surname",
         "Email": "E-Mail",

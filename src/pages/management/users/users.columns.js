@@ -1,10 +1,17 @@
 import React from 'react';
-import { Icon } from 'antd';
+import { Icon, Avatar } from 'antd';
 
 import store from './users.store';
 import { successColor, dangerColor } from '../../../lib/help/ColorsVariables';
 
 export const columns = (ref, locString, classes) => [
+  {
+    key: 'Avatar',
+    title: locString.label.Avatar,
+    dataIndex: 'Avatar',
+    render: (avatar) => (<div style={{ textAlign: 'center' }}><Avatar size="medium" src={avatar} /></div>),
+    width: '80px'
+  },
   {
     key: 'Name',
     title: locString.label.Name,
@@ -29,7 +36,7 @@ export const columns = (ref, locString, classes) => [
     width: '230px'
   },
   {
-    key: 'ConfirmedEmail',  
+    key: 'ConfirmedEmail',
     title: locString.label.Confirmed_Email,
     dataIndex: 'ConfirmedEmail',
     render: (confirmed) => confirmed
