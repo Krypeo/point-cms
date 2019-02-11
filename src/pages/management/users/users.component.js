@@ -21,6 +21,7 @@ class Users extends Component {
     const roles = store.roles.map(item => ({ value: item.Identifier, text: item.Role }));
 
     const config = new ModularConfig()
+      .string({ key: 'Uid', label: 'Uid' })
       .string({ key: 'Avatar', label: locString.label.Avatar })
       .string({ key: 'Name', label: locString.label.Name, validators: [validators.required(locStringGlobal.sentences.Required)] })
       .string({ key: 'Surname', label: locString.label.Surname, validators: [validators.required(locStringGlobal.sentences.Required)] })
@@ -52,6 +53,7 @@ class Users extends Component {
     const roles = store.roles.map(item => ({ value: item.Identifier, text: item.Role }));
 
     const config = new ModularConfig()
+      .string({ key: 'Uid', label: 'Uid', defaultValue: row.Uid })
       .string({ key: 'Avatar', label: locString.label.Avatar, defaultValue: row.Avatar })
       .string({ key: 'Name', label: locString.label.Name, defaultValue: row.Name, validators: [validators.required(locStringGlobal.sentences.Required)] })
       .string({ key: 'Surname', label: locString.label.Surname, defaultValue: row.Surname, validators: [validators.required(locStringGlobal.sentences.Required)] })

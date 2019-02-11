@@ -16,13 +16,13 @@ export const columns = (ref, locString, classes) => [
     key: 'Name',
     title: locString.label.Name,
     dataIndex: 'Name',
-    width: '400px'
+    width: '300px'
   },
   {
     key: 'Surname',
     title: locString.label.Surname,
     dataIndex: 'Surname',
-    width: '400px'
+    width: '300px'
   },
   {
     key: 'Email',

@@ -5,7 +5,7 @@ import { observer } from 'mobx-react';
 import { withRouter } from 'react-router-dom';
 
 import LeftSideBarComponent from './components/left-side-bar.component';
-import TopBarComponent from './components/top-bar-component';
+import TopBarComponent from './components/top-bar/top-bar.component';
 import FooterComponent from './components/footer-bat.component';
 import Routing from '../routing.component';
 

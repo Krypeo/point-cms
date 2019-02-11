@@ -1,40 +1,15 @@
 import React, { Component } from 'react';
 import injectSheet from 'react-jss';
-import { Layout, Row, Col, Menu, Icon, Dropdown, message  } from 'antd';
+import { Layout, Row, Col, Menu, Icon, Dropdown, message } from 'antd';
 import { inject, observer } from 'mobx-react';
 import Flag from 'react-world-flags';
 import { Avatar } from 'antd';
 
-import firebase from '../../../../lib/api/config.api';
+import firebase from '../../../../../lib/api/config.api';
+import style from './top-bar.style';
+import store from './top-bar.store';
 
 const { Header } = Layout;
-const style = {
-  userAvatar: {
-    background: '#333333',
-    cursor: 'pointer',
-    '& i': {
-      fontSize: '24px!important'
-    }
-  },
-  customIcon: {
-    margin: '4px 8px'
-  },
-
-  email: {
-    color: '#001529', 
-    marginRight: '14px', 
-    textAlign: 'center', 
-    fontSize: '16px',
-    marginTop: '4px'
-  },
-
-  logo: {
-    textAlign: 'left',
-    color: '#333333',
-    fontSize: '23px',
-    fontWeight: 'bold'
-  }
-}
 
 @inject(['loc']) @observer
 class TopBarComponent extends Component {
@@ -46,7 +21,7 @@ class TopBarComponent extends Component {
     try {
       await firebase.auth().signOut();
       message.success(locStringsGlobal.sentences.User_Was_Logout);
-    } catch(err) {
+    } catch (err) {
       message.error(err.message);
     } finally {
       hide();
@@ -56,6 +31,7 @@ class TopBarComponent extends Component {
   componentDidMount() {
     this.mounted = true;
     this.props.loc.subscribe(this);
+    store.refresh();
   }
   componentWillUnmount() {
     this.mounted = false;
@@ -65,7 +41,10 @@ class TopBarComponent extends Component {
   render() {
     const { loc, classes, uid } = this.props;
     const locStringsGlobal = loc.strings.Global;
-    console.log(uid);
+    const users = store.fullData;
+    const userData = users.find(item => item.Uid === uid);
+    const userAvatar = userData ? userData.Avatar : '';
+
     const menu = (
       <Menu>
         <Menu.Item>
@@ -87,7 +66,10 @@ class TopBarComponent extends Component {
               <Flag onClick={() => loc.setLang('cs', () => this.setState({}))} style={{ marginRight: '7px', cursor: 'pointer' }} code="CZ" height="16" />
               <Flag onClick={() => loc.setLang('en', () => this.setState({}))} style={{ marginRight: '14px', cursor: 'pointer' }} code="GB" height="16" />
               <Dropdown overlay={menu}>
-                <Avatar icon="user" />
+                { userAvatar
+                  ? <Avatar size="large" src={userAvatar} />
+                  : <Avatar size="large" icon="user" />
+                }
               </Dropdown>
             </div>
           </Col>
