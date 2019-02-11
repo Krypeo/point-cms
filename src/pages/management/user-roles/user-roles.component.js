@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import injectSheet from 'react-jss';
 import { observer, inject } from 'mobx-react';
-import { Table, message } from 'antd';
+import { Table, message, Modal } from 'antd';
 import { ModularConfig, modularDialog, validators } from '@adler-it/reactant-modularis';
 
 import style from './user-roles.style';
@@ -46,7 +46,7 @@ class UserRoles extends Component {
     const locStringGlobal = this.props.loc.strings.Global;
 
     const config = new ModularConfig()
-      .number({ key: 'Identifier', label: locString.label.Identifier, defaultValue: row.Role })
+      .number({ key: 'Identifier', label: locString.label.Identifier, defaultValue: row.Identifier, disabled: true })
       .string({ key: 'Role', label: locString.label.Role, defaultValue: row.Role, validators: [validators.required(locStringGlobal.sentences.Required)] })
       .switch({ key: 'Active', label: locString.label.Active, defaultValue: row.Active })
 
@@ -65,6 +65,24 @@ class UserRoles extends Component {
           dialog.load(false);
         }
       })
+  };
+
+  handleRemove = (row) => {
+    const locStringGlobal = this.props.loc.strings.Global;
+
+    Modal.confirm({
+      title: `${locStringGlobal.Remove}?`,
+      onOk: async () => {
+        try {
+          await store.remove(row.key);
+          message.success(locStringGlobal.Removed);
+          store.refresh();
+        } catch (err) {
+          console.error(err);
+          message.error(`${err.name}: ${err.message}`)
+        }
+      }
+    });
   };
 
   componentDidMount() {
