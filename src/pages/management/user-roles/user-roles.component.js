@@ -67,19 +67,6 @@ class UserRoles extends Component {
       })
   };
 
-  test = () => {
-    const data = {
-      Role: 'Administrator',
-      Active: true
-    }
-    try {
-      store.insert(data);
-      message.success("Hotovo");
-    } catch (err) {
-      console.error(err);
-    }
-  }
-
   componentDidMount() {
     this.mounted = true;
     this.props.loc.subscribe(this);
