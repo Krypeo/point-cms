@@ -4,6 +4,7 @@
     "Management": {
       "Name": "Management",
       "User_Management": "Users",
+      "User_Roles_Management": "Users roles",
       "Language_Management": "Languages",
       "Categories_Management": "Categories"
     },
@@ -75,13 +76,19 @@
   "Management": {
     "Users_Management": {
       "label": {
-        "Username": "Username",
         "Name": "Name",
         "Surname": "Surname",
         "Email": "E-Mail",
-        "Register_Date": "Register date",
+        "Role": "Role",
         "Active": "Active",
-        "Administrator": "Administrator"
+        "Confirmed_Email": "Confirmed email"
+      }
+    },
+    "User_Roles_Management": {
+      "label": {
+        "Identifier": "Identifier",
+        "Role": "Role",
+        "Active": "Aktivní"
       }
     },
     "Language_Management": {

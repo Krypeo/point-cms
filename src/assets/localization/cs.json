@@ -4,6 +4,7 @@
     "Management": {
       "Name": "Správa",
       "User_Management": "Uživatelé",
+      "User_Roles_Management": "Role uživatelů", 
       "Language_Management": "Jazyky",
       "Categories_Management": "Kategorie"
     },
@@ -75,13 +76,19 @@
   "Management": {
     "Users_Management": {
       "label": {
-        "Username": "Přihlašovací jméno",
         "Name": "Jméno",
         "Surname": "Příjmení",
         "Email": "E-Mail",
-        "Register_Date": "Datum registrace",
+        "Role": "Role",
         "Active": "Aktívni",
-        "Administrator": "Administrátor"
+        "Confirmed_Email": "Potvrzený e-mail"
+      }
+    },
+    "User_Roles_Management": {
+      "label": {
+        "Identifier": "Identifikátor",
+        "Role": "Role",
+        "Active": "Aktivní"
       }
     },
     "Language_Management": {

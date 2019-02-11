@@ -45,6 +45,7 @@ class LeftSideBarComponent extends Component {
 
           <SubMenu key="management" title={<span><Icon type="tool" /><span>{locStringMenu.Management.Name}</span></span>}>
             <Menu.Item key="management-users">{<a href="/#/management/users">{locStringMenu.Management.User_Management}</a>}</Menu.Item>
+            <Menu.Item key="management-user-roles">{<a href="/#/management/user-roles">{locStringMenu.Management.User_Roles_Management}</a>}</Menu.Item>
             <Menu.Item key="management-languages">{<a href="/#/management/languages">{locStringMenu.Management.Language_Management}</a>}</Menu.Item>
             <Menu.Item key="management-categories">{<a href="/#/management/categories">{locStringMenu.Management.Categories_Management}</a>}</Menu.Item>
           </SubMenu>
