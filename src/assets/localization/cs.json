@@ -129,5 +129,18 @@
         "Published": "Zveřejněno"
       }
     }
+  },
+  "Layout": {
+    "Settings": {
+      "headers": {
+        "Settings": "Nastavení",
+        "Info_About_User": "Informace o uživateli",
+        "Environment_Settings": "Nastavení prostředí"
+      },
+      "label": {
+        "Name_Surname": "Jméno a příjmení",
+        "Email": "E-Mail"
+      }
+    }
   }
 }

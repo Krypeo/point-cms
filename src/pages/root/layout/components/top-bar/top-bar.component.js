@@ -6,6 +6,7 @@ import Flag from 'react-world-flags';
 import { Avatar } from 'antd';
 
 import firebase from '../../../../../lib/api/config.api';
+import SettingsDrawerComponent from './components/settings-drawer.component';
 import style from './top-bar.style';
 import store from './top-bar.store';
 
@@ -13,6 +14,21 @@ const { Header } = Layout;
 
 @inject(['loc']) @observer
 class TopBarComponent extends Component {
+  state = {
+    drawer: false
+  }
+
+  handleSettings = () => {
+    this.setState({
+      drawer: true
+    })
+  };
+
+  handleCloseSettings = () => {
+    this.setState({
+      drawer: false
+    })
+  }
 
   handleLogout = async () => {
     const locStringsGlobal = this.props.loc.strings.Global;
@@ -40,6 +56,7 @@ class TopBarComponent extends Component {
 
   render() {
     const { loc, classes, uid } = this.props;
+    const { drawer } = this.state;
     const locStringsGlobal = loc.strings.Global;
     const users = store.fullData;
     const userData = users.find(item => item.Uid === uid);
@@ -48,7 +65,7 @@ class TopBarComponent extends Component {
     const menu = (
       <Menu>
         <Menu.Item>
-          <div><Icon type="setting" className={classes.customIcon} /> {locStringsGlobal.Settings}</div>
+          <div onClick={this.handleSettings}><Icon type="setting" className={classes.customIcon} /> {locStringsGlobal.Settings}</div>
         </Menu.Item>
         <Menu.Item>
           <div onClick={this.handleLogout}><Icon type="logout" className={classes.customIcon} /> {locStringsGlobal.Logout}</div>
@@ -58,6 +75,7 @@ class TopBarComponent extends Component {
 
     return (
       <Header style={{ background: '#fff', padding: 0 }}>
+        <SettingsDrawerComponent drawer={drawer} close={this.handleCloseSettings} userData={userData} />
         <Row>
           <Col span={8}></Col>
           <Col span={8}></Col>
