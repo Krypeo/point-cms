@@ -3,13 +3,22 @@ import { Icon, Avatar } from 'antd';
 
 import store from './users.store';
 import { successColor, dangerColor } from '../../../lib/help/ColorsVariables';
+import { randomColor } from '../../../lib/help/GlobalFunctions';
 
 export const columns = (ref, locString, classes) => [
   {
     key: 'Avatar',
     title: locString.label.Avatar,
-    dataIndex: 'Avatar',
-    render: (avatar) => (<div style={{ textAlign: 'center' }}><Avatar size="medium" src={avatar} /></div>),
+    render: (row) => {
+      const FirstLetterOfName = row.Name[0];
+      return (
+        <div style={{ textAlign: 'center' }}>{
+          (row.Avatar.length > 1)
+            ? <Avatar size="medium" src={row.Avatar} />
+            : <Avatar style={{ background: `${randomColor()}` }} size="medium">{FirstLetterOfName}</Avatar> }
+        </div>
+      )
+    },
     width: '80px'
   },
   {
