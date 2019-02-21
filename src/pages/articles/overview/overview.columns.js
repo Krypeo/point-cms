@@ -65,7 +65,7 @@ export const columns = (ref, locString, classes) => [
     ),
     render: (row) => (
       <div>
-        <Icon type="eye" className={classes.iconButton} />
+        <Icon type="eye" onClick={() => ref.handleShowArticleDetail()} className={classes.iconButton} />
         <Icon type="delete" className={classes.dangerIcon} />
       </div>
     ),

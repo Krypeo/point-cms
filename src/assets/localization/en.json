@@ -62,7 +62,7 @@
     "words": {
       "Login": "Login",
       "Logout": "Logout",
-      "Forget_Password": "Forget password",
+      "Forget_Password": "Forgot password",
       "Logging_Off": "Logging off",
       "Logging_On": "Logging on"
     },
@@ -70,7 +70,9 @@
       "User_Was_Logout": "User was successfully logout!",
       "User_Was_Login": "User was successfully login!",
       "Please_Check_The_Login": "Wrong login! Please check the login!",
-      "Administration_Login": "Administration login"
+      "Administration_Login": "Administration login",
+      "Reset_Forget_Password": "Reset forgot password",
+      "Password_Was_Send": "Email for reset password was sent."
     }
   },
   "Management": {

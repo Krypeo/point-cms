@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import injectSheet from 'react-jss';
 import { extendObservable } from 'mobx';
 import { inject, observer } from 'mobx-react';
-import { Col, Card, Form, Icon, Input, Button, message, Row } from 'antd';
+import { Col, Card, Form, Icon, Input, Button, message, Row, Modal } from 'antd';
 import Flag from 'react-world-flags';
 
 import firebase from '../../lib/api/config.api';
@@ -29,6 +29,10 @@ class Login extends Component {
       redirect: false
     })
   }
+  state = {
+    forgetPasswordModal: false,
+    forgetEmail: ''
+  }
 
   handleChange = (e) => {
     const { id, value } = e.target;
@@ -50,9 +54,36 @@ class Login extends Component {
     };
   }
 
-  lostPassword = () => {
-    message.info('Not yet...'); // TODO Dodelat ztracene heslo
+  handleShowLostPasswordModal = () => {
+    const { forgetPasswordModal } = this.state;
+    if (forgetPasswordModal) {
+      this.setState({
+        forgetPasswordModal: false
+      })
+    } else {
+      this.setState({
+        forgetPasswordModal: true
+      })
+    }
   };
+  onChangeForgetEmail = (e) => {
+    this.setState({
+      forgetEmail: e.target.value
+    })
+  };
+  handleSendNewPasswordOnEmail = async () => {
+    const { forgetEmail } = this.state;
+    const locString = this.props.loc.strings.Login;
+
+    try {
+      await firebase.auth().sendPasswordResetEmail(forgetEmail).then(() => {
+        message.success(locString.sentences.Password_Was_Send);
+        this.setState({ forgetEmail: '' })
+      })
+    } catch(err) {
+      message.error(err.message);
+    }
+  }
 
   componentDidMount() {
     this.mounted = true;
@@ -110,12 +141,27 @@ class Login extends Component {
                   <Flag onClick={() => loc.setLang('en', () => this.setState({}))} style={{ marginRight: '14px', cursor: 'pointer' }} code="GB" height="16" />
                 </Col>
                 <Col span={12} className={classes.lostPassword}>
-                  <Button onClick={this.lostPassword} size="small" type="dashed">{locString.words.Forget_Password}</Button>
+                  <Button onClick={this.handleShowLostPasswordModal} size="small" type="dashed">{locString.words.Forget_Password}</Button>
                 </Col>
               </Row>
             </Form>
           </Card>
         </Col>
+        <Modal
+          title={locString.sentences.Reset_Forget_Password}
+          visible={this.state.forgetPasswordModal}
+          onOk={this.handleSendNewPasswordOnEmail}
+          onCancel={this.handleShowLostPasswordModal}
+          okText={locStringGlobal.Send}
+        >
+          <Input
+            placeholder={locStringGlobal.Email}
+            prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+            value={this.state.forgetEmail}
+            onChange={(e) => this.onChangeForgetEmail(e)}
+            type="email"
+          />
+        </Modal>
       </div>
     )
   }

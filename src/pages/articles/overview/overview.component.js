@@ -47,6 +47,10 @@ class OverviewArticles extends Component {
       })
   };
 
+  handleShowArticleDetail = () => {
+    console.log('Ready to show detail!')
+  };
+
   componentDidMount() {
     this.mounted = true;
     this.props.loc.subscribe(this);

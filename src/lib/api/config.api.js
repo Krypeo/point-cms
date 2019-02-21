@@ -1,5 +1,6 @@
-import app from 'firebase/app';
-import * as firebase from 'firebase';
+import * as firebase from 'firebase/app'
+import 'firebase/storage'
+import 'firebase/auth'
 
 let config = {
   apiKey: "AIzaSyB8dH2IhRcp-YtgdGScob1GCwMVwGDB3AU",
@@ -9,7 +10,7 @@ let config = {
   storageBucket: "",
   messagingSenderId: "812123289170"
 }
-app.initializeApp(config);
+firebase.initializeApp(config);
 const storage = firebase.storage();
 
 export { storage, firebase as default }
