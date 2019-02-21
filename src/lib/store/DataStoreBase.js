@@ -26,7 +26,7 @@ export class DataStoreBase {
       keys = Object.keys(toJS(this._data));
       fullData = Object.keys(toJS(this._data)).map((key) => {
         return { key: key, ...toJS(this._data)[key] };
-      })
+      });
     }
 
     this._fullData = fullData;

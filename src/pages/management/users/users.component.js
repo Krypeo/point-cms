@@ -28,7 +28,7 @@ class Users extends Component {
       .string({ key: 'Email', label: locString.label.Email, validators: [validators.required(locStringGlobal.sentences.Required)] })
       .select({ key: 'Role', label: locString.label.Role, data: roles, validators: [validators.required(locStringGlobal.sentences.Required)] })
       .switch({ key: 'ConfirmedEmail', label: locString.label.Confirmed_Email })
-      .switch({ key: 'Active', label: locString.label.Active })
+      .switch({ key: 'Active', label: locString.label.Active });
 
     modularDialog(locStringGlobal.Insert, config, '40%')
       .onResult(async (result, dialog) => {
@@ -92,6 +92,8 @@ class Users extends Component {
         } catch (err) {
           console.error(err);
           message.error(`${err.name}: ${err.message}`)
+        } finally {
+          message.loading(locStringGlobal.Loading);
         }
       }
     });

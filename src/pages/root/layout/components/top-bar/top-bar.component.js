@@ -9,6 +9,7 @@ import firebase from '../../../../../lib/api/config.api';
 import SettingsDrawerComponent from './components/settings-drawer.component';
 import style from './top-bar.style';
 import store from './top-bar.store';
+import { randomColor } from '../../../../../lib/help/GlobalFunctions';
 
 const { Header } = Layout;
 
@@ -61,6 +62,7 @@ class TopBarComponent extends Component {
     const users = store.fullData;
     const userData = users.find(item => item.Uid === uid);
     const userAvatar = userData ? userData.Avatar : '';
+    const userName = userData ? userData.Name : '';
 
     const menu = (
       <Menu>
@@ -86,7 +88,7 @@ class TopBarComponent extends Component {
               <Dropdown overlay={menu}>
                 { userAvatar
                   ? <Avatar size="large" src={userAvatar} />
-                  : <Avatar size="large" icon="user" />
+                  : <Avatar style={{ backgroundColor: randomColor() }} size="large">{userName[0]}</Avatar>
                 }
               </Dropdown>
             </div>

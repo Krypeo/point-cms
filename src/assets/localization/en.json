@@ -54,6 +54,7 @@
     "Logout": "Logout",
     "Email": "E-Mail",
     "Password": "Password",
+    "Loading": "Načítám",
     "sentences": {
       "Required": "This field is required!"
     }

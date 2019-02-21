@@ -54,6 +54,7 @@
     "Logout": "Odhlásit",
     "Email": "E-Mail",
     "Password": "Heslo",
+    "Loading": "Načítám",
     "sentences": {
       "Required": "Toto pole je vyžadováno!"
     }
