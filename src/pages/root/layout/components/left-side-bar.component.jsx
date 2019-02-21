@@ -28,7 +28,6 @@ class LeftSideBarComponent extends Component {
   render() {
     const { loc } = this.props;
     const locStringMenu = loc.strings.Menu;
-    // /articles/overview-articles
 
     return (
       <Sider

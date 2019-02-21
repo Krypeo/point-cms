@@ -58,6 +58,18 @@
       "Required": "Toto pole je vyžadováno!"
     }
   },
+
+  "Home": {
+    "words": {
+      "Users_Manager": "Správa uživatelů",
+      "New_Article": "Nový článek",
+      "Reading": "Přečtení"
+    },
+    "sentences": {
+      "Article_Reader_Graph": "Počet přečtení článků"
+    }
+  },
+
   "Login": {
     "words": {
       "Login": "Přihlásit",

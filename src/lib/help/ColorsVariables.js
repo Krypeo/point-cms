@@ -16,3 +16,6 @@ export const dangerColor = '#FF0000';
 // ICON COLORS
 export const exportColor = '#217346';
 
+// QUICK LINKS COLORS
+export const NewArticleColor = '#6200EE';
+export const UsersManagerColor = '#B00020';
