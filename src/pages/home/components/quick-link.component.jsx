@@ -14,9 +14,10 @@ const style = {
     borderRadius: '3px',
     boxShadow: '0px 5px 22px -3px rgba(0,0,0,0.33);',
     position: 'relative',
+    transition: 'transform .2s',
 
     '&:hover': {
-      opacity: '0.9'
+      transform: 'scale(1.01)'
     }
   },
 

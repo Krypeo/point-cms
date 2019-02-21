@@ -42,6 +42,16 @@ class ArticlesReader extends Component {
     legendPosition: 'top',
     location: 'City'
   }
+
+  componentDidMount() {
+    this.mounted = true;
+    this.props.loc.subscribe(this);
+  }
+  componentWillUnmount() {
+    this.mounted = false;
+    this.props.loc.unsubscribe(this);
+  }
+  
   render() {
     const { loc } = this.props;
     const locString = loc.strings.Home;

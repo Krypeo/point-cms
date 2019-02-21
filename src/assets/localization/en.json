@@ -58,9 +58,8 @@
       "Required": "This field is required!"
     }
   },
-
   "Home": {
-    "word": {
+    "words": {
       "Users_Manager": "Users manager",
       "New_Article": "New article",
       "Reading": "Reading"
@@ -69,7 +68,6 @@
       "Article_Reader_Graph": "Article reader graph"
     }
   },
-
   "Login": {
     "words": {
       "Login": "Login",

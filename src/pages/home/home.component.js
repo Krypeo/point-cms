@@ -14,6 +14,15 @@ import Grow from './components/grow.component';
 @inject('settings') @inject('loc') @observer
 class Home extends Component {
 
+  componentDidMount() {
+    this.mounted = true;
+    this.props.loc.subscribe(this);
+  }
+  componentWillUnmount() {
+    this.mounted = false;
+    this.props.loc.unsubscribe(this);
+  }
+
   render() {
     const { loc } = this.props;
     const locString = loc.strings.Home;
