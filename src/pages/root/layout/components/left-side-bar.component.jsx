@@ -3,6 +3,8 @@ import injectSheet from 'react-jss';
 import { Layout, Menu, Icon, } from 'antd';
 import { inject, observer } from 'mobx-react';
 
+import env from '../../../../lib/env.service';
+
 const { SubMenu } = Menu;
 const { Sider } = Layout;
 const style = [];
@@ -10,8 +12,9 @@ const style = [];
 @inject('loc') @observer
 class LeftSideBarComponent extends Component {
   state = {
-    hide: false,
-  };
+      hide: false,
+    };
+
 
   componentDidMount() {
     this.mounted = true;
@@ -28,6 +31,7 @@ class LeftSideBarComponent extends Component {
   render() {
     const { loc } = this.props;
     const locStringMenu = loc.strings.Menu;
+    const AppName = env.get('NAME_APP');
 
     return (
       <Sider
@@ -36,7 +40,7 @@ class LeftSideBarComponent extends Component {
         onCollapse={this.handleHide}
       >
         <div>
-          <h1 style={{ color: '#FFFFFF', textAlign: 'center' }}>Point CMS</h1>
+          <h1 style={{ color: '#FFFFFF', textAlign: 'center' }}>{AppName}</h1>
         </div>
         <Menu theme="dark" defaultSelectedKeys={['home']} mode="inline">
 

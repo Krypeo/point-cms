@@ -11,7 +11,7 @@ let config = {
   databaseURL: env.get('DATABASE_URL'),
   projectId: env.get('PROJECT_ID'),
   storageBucket: env.get('STORAGE_BUCKET'),
-  messagingSenderId: env.get('MESSAGING_ID')
+  messagingSenderId: env.get('MESSAGING_SENDER_ID')
 }
 firebase.initializeApp(config);
 const storage = firebase.storage();
