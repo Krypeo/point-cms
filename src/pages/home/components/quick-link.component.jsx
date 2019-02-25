@@ -14,11 +14,8 @@ const style = {
     borderRadius: '3px',
     boxShadow: '0px 5px 22px -3px rgba(0,0,0,0.33);',
     position: 'relative',
-    transition: 'transform .2s',
-
-    '&:hover': {
-      transform: 'scale(1.01)'
-    }
+    transition: 'transform all .2s',
+    border: '1px soli rgba(0, 0, 0, 0.65)'
   },
 
   linkIcon: {
@@ -44,7 +41,7 @@ class QuickLink extends Component {
     const { label, classes, background, icon } = this.props;
 
     return (
-      <div onClick={this.linkTo} className={classes.linkBox} style={{ border: `1px solid ${background}` }}>
+      <div onClick={this.linkTo} className={classes.linkBox} style={{ '&:hover':{ border: `1px solid ${background}` }}}>
         <span className={classes.linkIcon} style={{ color: background }}><Icon type={icon} /></span>
         {label}
       </div>

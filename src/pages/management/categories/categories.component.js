@@ -8,6 +8,7 @@ import { singleTableHeader } from '../../../lib/help/GlobalVariables';
 import style from './categories.style';
 import store from './categories.store';
 import { columns } from './categories.columns';
+import env from '../../../lib/env.service';
 
 @inject('loc') @inject('settings') @observer
 class Categories extends Component {
@@ -102,6 +103,7 @@ class Categories extends Component {
 
   render() {
     const { loc, classes } = this.props;
+    console.log(env.get('API_KEY'));
 
     return (
       <div>
