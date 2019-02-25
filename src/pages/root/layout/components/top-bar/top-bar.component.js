@@ -44,6 +44,10 @@ class TopBarComponent extends Component {
     }
   };
 
+  handleRefresh = async () => {
+    return await store.refresh();
+  };
+
   componentDidMount() {
     this.mounted = true;
     this.props.loc.subscribe(this);
@@ -75,7 +79,7 @@ class TopBarComponent extends Component {
 
     return (
       <Header style={{ background: '#fff', padding: 0 }}>
-        <SettingsDrawerComponent drawer={drawer} close={this.handleCloseSettings} userData={userData} />
+        <SettingsDrawerComponent refs={this} drawer={drawer} close={this.handleCloseSettings} userData={userData} />
         <Row>
           <Col span={8}></Col>
           <Col span={8}></Col>

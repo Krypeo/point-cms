@@ -46,7 +46,7 @@ export class DataStoreBase {
 
   update(id, entity) {
     return new Promise((resolve, reject) => {
-      firebase.database().ref().child(`${this.api}/${id}`).set(entity)
+      firebase.database().ref().child(`${this.api}/${id}`).update(entity)
         .then(() => {
           resolve();
         })
