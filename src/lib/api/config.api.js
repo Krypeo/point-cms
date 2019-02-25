@@ -3,14 +3,15 @@ import 'firebase/storage'
 import 'firebase/auth'
 import 'firebase/database'
 
+import env from '../env.service';
 
 let config = {
-  apiKey: "AIzaSyB8dH2IhRcp-YtgdGScob1GCwMVwGDB3AU",
-  authDomain: "point-cms.firebaseapp.com",
-  databaseURL: "https://point-cms.firebaseio.com",
-  projectId: "point-cms",
-  storageBucket: "",
-  messagingSenderId: "812123289170"
+  apiKey: env.get('API_KEY'),
+  authDomain: env.get('AUTH_DOMAIN'),
+  databaseURL: env.get('DATABASE_URL'),
+  projectId: env.get('PROJECT_ID'),
+  storageBucket: env.get('STORAGE_BUCKET'),
+  messagingSenderId: env.get('MESSAGING_ID')
 }
 firebase.initializeApp(config);
 const storage = firebase.storage();
