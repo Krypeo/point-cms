@@ -155,6 +155,19 @@
       }
     }
   },
+
+  "Logs": {
+    "Login": {
+      "label": {
+        "Email": "E-Mail",
+        "Ip_Address": "IP Adresa",
+        "City": "Město",
+        "Date": "Datum",
+        "Time": "Čas"
+      }
+    }
+  },
+
   "Layout": {
     "Settings": {
       "headers": {

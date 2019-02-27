@@ -6,6 +6,7 @@ import { Col, Card, Form, Icon, Input, Button, message, Row, Modal } from 'antd'
 import Flag from 'react-world-flags';
 
 import firebase from '../../lib/api/config.api';
+import { currentDate, currentTime } from '../../lib/help/Formatter';
 
 const style = {
   card: {
@@ -23,6 +24,8 @@ const style = {
 class Login extends Component {
   constructor(props) {
     super(props);
+    this.browserInfoUrl = 'https://ipapi.co/json/';
+    this.LoginLogsApi = 'LoginLogs';
     extendObservable(this, {
       username: '',
       password: '',
@@ -31,12 +34,50 @@ class Login extends Component {
   }
   state = {
     forgetPasswordModal: false,
-    forgetEmail: ''
+    forgetEmail: '',
+    browserData: []
   }
 
   handleChange = (e) => {
     const { id, value } = e.target;
     this[id] = value;
+  }
+
+  loginSuccessChecker = async () => {
+    const { browserData } = this.state;
+    const username = this.username;
+    const date = currentDate();
+    const time = currentTime();
+
+    let browserInfo = {
+      IpAddress: browserData.ip,
+      City: browserData.city
+    };
+    browserInfo = { ...browserInfo, Username: username, Date: date, Time: time, Success: true }
+    try {
+      await firebase.database().ref(this.LoginLogsApi).push(browserInfo)
+    } catch(err) {
+      console.error(err);
+      message.error(err.message);
+    }
+  }
+  loginFailChecker = async () => {
+    const { browserData } = this.state;
+    const username = this.username;
+    const date = currentDate();
+    const time = currentTime();
+
+    let browserInfo = {
+      IpAddress: browserData.ip,
+      City: browserData.city
+    };
+    browserInfo = { ...browserInfo, Username: username, Date: date, Time: time, Success: false }
+    try {
+      await firebase.database().ref(this.LoginLogsApi).push(browserInfo)
+    } catch(err) {
+      console.error(err);
+      message.error(err.message);
+    }
   }
 
   handleLogin = async () => {
@@ -46,9 +87,11 @@ class Login extends Component {
     try {
       await firebase.auth().signInWithEmailAndPassword(this.username, this.password);
       message.success(locStrings.sentences.User_Was_Login);
+      this.loginSuccessChecker()
     } catch (err) {
       console.error(err);
       message.error(locStrings.sentences.Please_Check_The_Login, 10);
+      this.loginFailChecker();
     } finally {
       hide()
     };
@@ -80,7 +123,7 @@ class Login extends Component {
         message.success(locString.sentences.Password_Was_Send);
         this.setState({ forgetEmail: '' })
       })
-    } catch(err) {
+    } catch (err) {
       message.error(err.message);
     }
   }
@@ -88,6 +131,12 @@ class Login extends Component {
   componentDidMount() {
     this.mounted = true;
     this.props.loc.subscribe(this);
+    fetch(this.browserInfoUrl)
+      .then(response => response.json())
+      .then(data => {
+        this.setState({ browserData: data })
+      })
+      .catch(error => console.error(error));
   }
   componentWillUnmount() {
     this.mounted = false;

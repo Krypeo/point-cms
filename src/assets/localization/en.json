@@ -146,5 +146,30 @@
         "Published": "Published"
       }
     }
+  },
+  "Logs": {
+    "Login": {
+      "label": {
+        "Email": "E-Mail",
+        "Ip_Address": "IP Address",
+        "City": "City",
+        "Date": "Date",
+        "Time": "Time"
+      }
+    }
+  },
+  "Layout": {
+    "Settings": {
+      "headers": {
+        "Settings": "Settings",
+        "Info_About_User": "Information about user",
+        "About_Browser": "Information about browser",
+        "Environment_Settings": "Environment setting"
+      },
+      "label": {
+        "Name_Surname": "Name and surname",
+        "Email": "E-Mail"
+      }
+    }
   }
 }

@@ -2,8 +2,8 @@
 export const invalidRowGrey = 'rgba(0,0,0,.05)';
 export const evenRowYellow = '#FFF8E1';
 export const neutralRowColor  = '#607D8B';
-export const successRowColor = '#8BC34A';
-export const warningRowColor= '#FFEB3B';
+export const successRowColor = '#A5D6A7';
+export const warningRowColor= '#ef9a9a';
 export const dangerRowColor = '#FFCDD2';
 
 // GLOBAL
