@@ -3,6 +3,7 @@ import injectSheet from 'react-jss';
 import { inject, observer } from 'mobx-react';
 import { Drawer, Card, Row, Col, Avatar, Input, message } from 'antd';
 
+import BrowserInfoComponent from '../../../../../../lib/components/browser-info/browser-info.components';
 import style from './settings.drawer.style';
 import store from './settings-drawer.store';
 
@@ -66,7 +67,7 @@ class SettingsDrawer extends Component {
     const Name = User.split(' ')[0];
     const Surname = User.split(' ')[1];
     const send = { Name: Name, Surname: Surname, Email: Email }
-        
+
     try {
       await store.update(uid, send);
       message.success(locStringGlobal.Sent);
@@ -112,12 +113,17 @@ class SettingsDrawer extends Component {
             extra={this.generateExtra()}
             title={locString.headers.Info_About_User}>
             <Row>
-              <Col span={12}><p className={classes.headText}>{locString.label.Name_Surname}</p></Col>
+              <Col span={12}><p className={classes.headText}>{locString.label.Name_Surname}:</p></Col>
               <Col span={12}>{inputs[0]}</Col>
             </Row>
             <Row>
-              <Col span={12}><p className={classes.headText}>{locString.label.Email}</p></Col>
+              <Col span={12}><p className={classes.headText}>{locString.label.Email}:</p></Col>
               <Col span={12}>{inputs[1]}</Col>
+            </Row>
+          </Card>
+          <Card style={{ marginTop: '28px' }} size="small" title={locString.headers.About_Browser}>
+            <Row>
+              <BrowserInfoComponent />
             </Row>
           </Card>
           <Card style={{ marginTop: '28px' }} size="small" title={locString.headers.Environment_Settings}>

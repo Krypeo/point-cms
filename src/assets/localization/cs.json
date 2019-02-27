@@ -60,6 +60,12 @@
     }
   },
 
+  "Components": {
+    "Browser_Info": {
+      "Ip_Address": "IP Adresa"
+    }
+  },
+
   "Home": {
     "words": {
       "Users_Manager": "Správa uživatelů",
@@ -150,6 +156,7 @@
       "headers": {
         "Settings": "Nastavení",
         "Info_About_User": "Informace o uživateli",
+        "About_Browser": "Informace o prohlížeči",
         "Environment_Settings": "Nastavení prostředí"
       },
       "label": {
