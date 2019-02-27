@@ -12,6 +12,10 @@
       "Name": "Articles",
       "Overview_Articles": "Overview",
       "New_Articles": "New"
+    },
+    "Logs": {
+      "Name": "Logs",
+      "Login": "Login"
     }
   },
   "Global": {

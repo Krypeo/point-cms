@@ -12,6 +12,10 @@
       "Name": "Články",
       "Overview_Articles": "Přehled",
       "New_Articles": "Nový"
+    },
+    "Logs": {
+      "Name": "Logy",
+      "Login": "Příhlášení"
     }
   },
   "Global": {

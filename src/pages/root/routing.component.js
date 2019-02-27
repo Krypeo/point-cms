@@ -14,6 +14,8 @@ import Categories_Component from '../management/categories/categories.component'
 // ARTICLES
 import Overview_Component from '../articles/overview/overview.component';
 import New_Component from '../articles/new/new.component';
+// LOGS
+import LoginLogs_Component from '../logs/login-logs/login-logs.component';
 
 @observer
 class Routing extends Component {
@@ -30,6 +32,8 @@ class Routing extends Component {
 
         <Route path="/articles/overview" exact component={Overview_Component} />
         <Route path="/articles/new" exact component={New_Component} />
+
+        <Route path="/logs/login" exact component={LoginLogs_Component} />
 
         <Route component={NotFound} />
       </Switch>
