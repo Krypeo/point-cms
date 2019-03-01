@@ -97,7 +97,7 @@
       "Administration_Login": "Přihlášení do administrace",
       "Reset_Forget_Password": "Obnovit zapomenuté heslo",
       "Password_Was_Send": "E-mail pro resetování hesla byl odeslán.",
-      "Empty_Email_Or_Password": "Prosím vyplňte uživatelské jméno a heslo!"
+      "Empty_Email_Or_Password": "Prosím vyplňte e-mail a heslo!"
     }
   },
   "Management": {

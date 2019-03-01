@@ -91,7 +91,8 @@
       "Please_Check_The_Login": "Wrong login! Please check the login!",
       "Administration_Login": "Administration login",
       "Reset_Forget_Password": "Reset forgot password",
-      "Password_Was_Send": "Email for reset password was sent."
+      "Password_Was_Send": "Email for reset password was sent.",
+      "Empty_Email_Or_Password": "Your email or password are empty!"
     }
   },
   "Management": {
