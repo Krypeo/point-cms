@@ -59,8 +59,12 @@
     "Logout": "Logout",
     "Email": "E-Mail",
     "Password": "Password",
+    "Logging_Off": "Logging off",
+    "Logging_On": "Logging on",
     "sentences": {
-      "Required": "This field is required!"
+      "Required": "This field is required!",
+      "User_Was_Logout": "User was logout!",
+      "User_Was_Login": "User was login!"
     }
   },
   "Home": {

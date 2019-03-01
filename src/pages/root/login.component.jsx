@@ -56,7 +56,7 @@ class Login extends Component {
     browserInfo = { ...browserInfo, Username: username, Date: date, Time: time, Success: true }
     try {
       await firebase.database().ref(this.LoginLogsApi).push(browserInfo)
-    } catch(err) {
+    } catch (err) {
       console.error(err);
       message.error(err.message);
     }
@@ -74,27 +74,32 @@ class Login extends Component {
     browserInfo = { ...browserInfo, Username: username, Date: date, Time: time, Success: false }
     try {
       await firebase.database().ref(this.LoginLogsApi).push(browserInfo)
-    } catch(err) {
+    } catch (err) {
       console.error(err);
       message.error(err.message);
     }
   }
 
   handleLogin = async () => {
+    const username = this.username;
+    const password = this.password;
     const locStrings = this.props.loc.strings.Login;
-    const hide = message.loading(locStrings.words.Logging_On);
 
-    try {
-      await firebase.auth().signInWithEmailAndPassword(this.username, this.password);
-      message.success(locStrings.sentences.User_Was_Login);
-      this.loginSuccessChecker()
-    } catch (err) {
-      console.error(err);
-      message.error(locStrings.sentences.Please_Check_The_Login, 10);
-      this.loginFailChecker();
-    } finally {
-      hide()
-    };
+    if (username.length <= 1 || password.length <= 1) {
+      message.error(locStrings.sentences.Empty_Email_Or_Password);
+    } else {
+      try {
+        await firebase.auth().signInWithEmailAndPassword(this.username, this.password);
+        message.success(locStrings.sentences.User_Was_Login);
+        this.loginSuccessChecker()
+      } catch (err) {
+        console.error(err);
+        message.error(locStrings.sentences.Please_Check_The_Login, 10);
+        this.loginFailChecker();
+      } finally {
+        message.loading(locStrings.words.Logging_On);
+      };
+    }
   }
 
   handleShowLostPasswordModal = () => {

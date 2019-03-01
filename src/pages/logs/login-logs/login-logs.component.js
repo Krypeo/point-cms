@@ -33,7 +33,7 @@ class LoginLogs extends Component {
           columns={columns(this, loc.strings.Logs.Login, classes)}
           pagination={{ pageSize: 20 }}
           loading={store.loading}
-          size={this.props.settings.tableSize}
+          size="small"
           onChange={this.handleTableChange}
           scroll={{ y: singleTableHeader }}
           rowClassName={(row) => row.Success ? classes.successRow : classes.warningRow}

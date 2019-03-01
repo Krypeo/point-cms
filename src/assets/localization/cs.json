@@ -4,7 +4,7 @@
     "Management": {
       "Name": "Správa",
       "User_Management": "Uživatelé",
-      "User_Roles_Management": "Role uživatelů", 
+      "User_Roles_Management": "Role uživatelů",
       "Language_Management": "Jazyky",
       "Categories_Management": "Kategorie"
     },
@@ -59,17 +59,19 @@
     "Logout": "Odhlásit",
     "Email": "E-Mail",
     "Password": "Heslo",
+    "Logging_Off": "Odhlášuji",
+    "Logging_On": "Přihlášuji",
     "sentences": {
-      "Required": "Toto pole je vyžadováno!"
+      "Required": "Toto pole je vyžadováno!",
+      "User_Was_Logout": "Uživatel byl úspěšně odhlášený!",
+      "User_Was_Login": "Uživatel byl úspěšně přihlášený!"
     }
   },
-
   "Components": {
     "Browser_Info": {
       "Ip_Address": "IP Adresa"
     }
   },
-
   "Home": {
     "words": {
       "Users_Manager": "Správa uživatelů",
@@ -80,7 +82,6 @@
       "Article_Reader_Graph": "Počet přečtení článků"
     }
   },
-
   "Login": {
     "words": {
       "Login": "Přihlásit",
@@ -95,7 +96,8 @@
       "Please_Check_The_Login": "Chybné přihlášení! Prosím zkontrolujte vaše přihlašovací údaje!",
       "Administration_Login": "Přihlášení do administrace",
       "Reset_Forget_Password": "Obnovit zapomenuté heslo",
-      "Password_Was_Send": "E-mail pro resetování hesla byl odeslán."
+      "Password_Was_Send": "E-mail pro resetování hesla byl odeslán.",
+      "Empty_Email_Or_Password": "Prosím vyplňte uživatelské jméno a heslo!"
     }
   },
   "Management": {
@@ -155,7 +157,6 @@
       }
     }
   },
-
   "Logs": {
     "Login": {
       "label": {
@@ -167,7 +168,6 @@
       }
     }
   },
-
   "Layout": {
     "Settings": {
       "headers": {
