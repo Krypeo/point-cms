@@ -1,3 +1,5 @@
+import { toJS } from 'mobx';
+
 // TEXT TO LOWERCASE
 export const ToLowerCase = (string) => {
   return string.toLowerCase();
@@ -19,4 +21,13 @@ export const randomColor = () => {
     color += letters[Math.floor(Math.random() * 16)];
   }
   return color;
+};
+
+// PARSE STORE DATA
+export const parseClearData = (data) => {
+  let response = [];
+  response = Object.keys(toJS(data)).map((key) => {
+    return { key: key, ...toJS(data)[key] };
+  })
+  return response;
 };

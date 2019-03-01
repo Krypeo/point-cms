@@ -21,7 +21,7 @@ class UserRoles extends Component {
 
     const config = new ModularConfig()
       .number({ key: 'Identifier', label: locString.label.Identifier })
-      .string({ key: 'Role', label: locString.label.Role, validators: [validators.required(locStringGlobal.sentences.Required)] })
+      .string({ key: 'Description', label: locString.label.Description, validators: [validators.required(locStringGlobal.sentences.Required)] })
       .switch({ key: 'Active', label: locString.label.Active })
 
     modularDialog(locStringGlobal.Insert, config, '30%')
@@ -47,7 +47,7 @@ class UserRoles extends Component {
 
     const config = new ModularConfig()
       .number({ key: 'Identifier', label: locString.label.Identifier, defaultValue: row.Identifier, disabled: true })
-      .string({ key: 'Role', label: locString.label.Role, defaultValue: row.Role, validators: [validators.required(locStringGlobal.sentences.Required)] })
+      .string({ key: 'Description', label: locString.label.Description, defaultValue: row.Description, validators: [validators.required(locStringGlobal.sentences.Required)] })
       .switch({ key: 'Active', label: locString.label.Active, defaultValue: row.Active })
 
     modularDialog(locStringGlobal.Update, config, '40%')

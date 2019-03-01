@@ -12,9 +12,9 @@ export const columns = (ref, locString, classes) => [
     width: '50px'
   },
   {
-    key: 'Role',
-    title: locString.label.Role,
-    dataIndex: 'Role',
+    key: 'Description',
+    title: locString.label.Description,
+    dataIndex: 'Description',
   },
   {
     key: 'Active',

@@ -18,7 +18,7 @@ class Users extends Component {
   handleInsert = () => {
     const locString = this.props.loc.strings.Management.Users_Management;
     const locStringGlobal = this.props.loc.strings.Global;
-    const roles = store.roles.map(item => ({ value: item.Identifier, text: item.Role }));
+    const roles = store.roles.map(item => ({ value: item.Identifier, text: item.Description }));
 
     const config = new ModularConfig()
       .string({ key: 'Uid', label: 'Uid' })
@@ -50,7 +50,7 @@ class Users extends Component {
   handleEdit = (row) => {
     const locString = this.props.loc.strings.Management.Users_Management;
     const locStringGlobal = this.props.loc.strings.Global;
-    const roles = store.roles.map(item => ({ value: item.Identifier, text: item.Role }));
+    const roles = store.roles.map(item => ({ value: item.Identifier, text: item.Description }));
 
     const config = new ModularConfig()
       .string({ key: 'Uid', label: 'Uid', defaultValue: row.Uid })
@@ -100,8 +100,8 @@ class Users extends Component {
   componentDidMount() {
     this.mounted = true;
     this.props.loc.subscribe(this);
-    store.refresh();
     store._refresh();
+    store.refresh();
   }
   componentWillUnmount() {
     this.mounted = false;

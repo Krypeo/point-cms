@@ -115,7 +115,7 @@
     "User_Roles_Management": {
       "label": {
         "Identifier": "Identifikátor",
-        "Role": "Role",
+        "Description": "Popis",
         "Active": "Aktivní"
       }
     },

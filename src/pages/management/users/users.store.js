@@ -1,10 +1,12 @@
-import { toJS, observable, computed, action } from 'mobx';
+import { observable, computed, action } from 'mobx';
 
 import DataStoreBase from '../../../lib/store/DataStoreBase';
 import firebase from '../../../lib/api/config.api';
+import { parseClearData } from '../../../lib/help/GlobalFunctions';
 
 class UsersStore extends DataStoreBase {
   @observable _roles = [];
+  _data = [];
 
   constructor() {
     super('Users');
@@ -13,18 +15,17 @@ class UsersStore extends DataStoreBase {
 
   @action async _refresh() {
     this.loading = true;
-    const roles = await firebase.database().ref(this.userRoles).once('value');
 
-    this._roles = roles.val();
+    let roles = await firebase.database().ref(this.userRoles).once('value');
+    roles = parseClearData(roles.val())
+
+    this._roles = roles;
     this.loading = false;
+    super.refresh();
   }
 
   @computed get roles() {
-    let data = []
-    data = Object.keys(toJS(this._roles)).map((key) => {
-      return { key: key, ...toJS(this._roles)[key] };
-    })
-    return data;
+    return this._roles;
   };
 }
 

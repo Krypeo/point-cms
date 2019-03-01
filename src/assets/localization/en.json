@@ -110,7 +110,7 @@
     "User_Roles_Management": {
       "label": {
         "Identifier": "Identifier",
-        "Role": "Role",
+        "Description": "Description",
         "Active": "Active"
       }
     },
