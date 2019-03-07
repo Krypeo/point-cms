@@ -16,6 +16,10 @@
     "Logs": {
       "Name": "Logs",
       "Login": "Login"
+    },
+    "Questionnaires": {
+      "Name": "Questionnaires",
+      "Overview": "Overview"
     }
   },
   "Global": {
@@ -160,6 +164,21 @@
         "City": "City",
         "Date": "Date",
         "Time": "Time"
+      }
+    }
+  },
+  "Questionnaires": {
+    "Overview": {
+      "label": {
+        "Question": "Question",
+        "Published": "Published",
+        "Number_Of_Votes": "Number of votes",
+        "Date_Of_Publish": "Date of published",
+        "Answer": "Answer"
+      },
+      "sentences": {
+        "Add_New_Questionnaire": "Add new questionnaire",
+        "Edit_New_Questionnaire": "Edit new questionnaire"
       }
     }
   },

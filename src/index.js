@@ -6,6 +6,8 @@ import Root from './pages/root/root.component';
 import { HashRouter as Router } from 'react-router-dom';
 import { Provider } from 'mobx-react';
 
+import './styles/style.css';
+
 import stores from './stores';
 
 const App = () => (

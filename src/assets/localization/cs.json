@@ -16,6 +16,10 @@
     "Logs": {
       "Name": "Logy",
       "Login": "Příhlášení"
+    },
+    "Questionnaires": {
+      "Name": "Ankety",
+      "Overview": "Přehled"
     }
   },
   "Global": {
@@ -165,6 +169,22 @@
         "City": "Město",
         "Date": "Datum",
         "Time": "Čas"
+      }
+    }
+  },
+
+  "Questionnaires": {
+    "Overview": {
+      "label": {
+        "Question": "Otázka",
+        "Published": "Zveřejněno",
+        "Number_Of_Votes": "Počet hlasů",
+        "Date_Of_Publish": "Datum zobrazení",
+        "Answer": "Odpověď"
+      },
+      "sentences": {
+        "Add_New_Questionnaire": "Přidat novou anketu",
+        "Edit_New_Questionnaire": "Upravit novou anketu"
       }
     }
   },

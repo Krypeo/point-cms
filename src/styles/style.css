@@ -1,0 +1,52 @@
+
+
+.invalid {
+	text-decoration: line-through;
+}
+
+/* table scrolling */
+.ant-table-header {
+	margin-bottom: 0px !important;
+	overflow: hidden !important;
+}
+.ant-table-fixed-header > .ant-table-content > .ant-table-scroll > .ant-table-body {
+	overflow-y: overlay !important;
+}
+
+/* fix drawer ui glich */
+ 
+
+/* upload full width */
+.ant-upload.ant-upload-select {
+	width: 100%;
+}
+
+/* form item margin */
+.ant-form-item {
+	margin-bottom: 5px;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+	width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #ddd;
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+}
+
+::-webkit-scrollbar-corner {
+	background: #000;
+}
+
+/* datagrid inactive color */
+
+.ant-table-column-sorter {
+	color: rgba(0, 0, 0, 0.20);
+}
+
+.ant-table-thead > tr > th .anticon-filter, .ant-table-thead > tr > th .ant-table-filter-icon {
+	color: rgba(0, 0, 0, 0.20);
+}

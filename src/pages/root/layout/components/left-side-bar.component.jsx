@@ -62,6 +62,10 @@ class LeftSideBarComponent extends Component {
             <Menu.Item key="logs-login">{<a href="/#/logs/login">{locStringMenu.Logs.Login}</a>}</Menu.Item>
           </SubMenu>
 
+          <SubMenu key="questionnaires" title={<span><Icon type="question" /><span>{locStringMenu.Questionnaires.Name}</span></span>}>
+            <Menu.Item key="questionnaires-overview">{<a href="/#/questionnaires/overview">{locStringMenu.Questionnaires.Overview}</a>}</Menu.Item>
+          </SubMenu>
+
         </Menu>
       </Sider>
     );
