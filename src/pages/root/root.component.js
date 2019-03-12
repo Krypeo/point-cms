@@ -36,7 +36,7 @@ class Root extends Component {
       return (<LoadingComponent />)
     } else if (!loading && user) {
       return (<MainLayoutComponent />)
-    } else {
+    } else if (!user) {
       return (<LoginComponent />)
     };
   };

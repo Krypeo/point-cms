@@ -89,6 +89,7 @@ class Login extends Component {
       message.error(locStrings.sentences.Empty_Email_Or_Password);
     } else {
       try {
+        message.loading(locStrings.words.Logging_On);
         await firebase.auth().signInWithEmailAndPassword(this.username, this.password);
         message.success(locStrings.sentences.User_Was_Login);
         this.loginSuccessChecker()
@@ -96,9 +97,7 @@ class Login extends Component {
         console.error(err);
         message.error(locStrings.sentences.Please_Check_The_Login, 10);
         this.loginFailChecker();
-      } finally {
-        message.loading(locStrings.words.Logging_On);
-      };
+      }
     }
   }
 
