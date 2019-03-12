@@ -56,7 +56,7 @@ class QuestionnairesOverview extends Component {
     const { Question, numberOfAnswers } = this.state;
     const answers = numberOfAnswers.forEach(item => {
       const response = `${this.state.Answer}${item}`;
-      console.log(response);
+      console.log(Question);
       return response;
     })
     console.log(answers);

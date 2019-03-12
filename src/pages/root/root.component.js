@@ -4,6 +4,7 @@ import { observer } from 'mobx-react';
 import { withRouter } from 'react-router-dom';
 import firebase from '../../lib/api/config.api';
 
+import LoadingComponent from './loading.component';
 import MainLayoutComponent from './layout/layout.component';
 import LoginComponent from './login.component';
 
@@ -16,19 +17,35 @@ class Root extends Component {
     firebase.auth().onAuthStateChanged((data) => this.setState({ user: data != null }));
     firebase.auth().onAuthStateChanged((user) => this.setState({ uid: user.uid }));
     this.state = {
-      user: false
+      user: false,
+      loading: true
     }
   }
+
+  loadingPrefix = () => {
+    return (<LoadingComponent />)
+  };
+
+  autoContent = () => {
+    const { user, loading } = this.state;
+
+    if (loading) {
+      setTimeout(() => {
+        this.setState({ loading: false })
+      }, 2500);
+      return (<LoadingComponent />)
+    } else if (!loading && user) {
+      return (<MainLayoutComponent />)
+    } else {
+      return (<LoginComponent />)
+    };
+  };
 
   render() {
 
     return (
       <div>
-        {
-          this.state.user
-            ? (<MainLayoutComponent uid={this.state.uid} />)
-            : (<LoginComponent />)
-        }
+        {this.autoContent()}
       </div>
     );
   }
