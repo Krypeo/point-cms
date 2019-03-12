@@ -3,11 +3,8 @@ import { inject, observer } from 'mobx-react';
 import injectSheet from 'react-jss';
 import { Input } from 'antd';
 import { Row, Col, DatePicker, Button, Tag } from 'antd';
-import { Editor } from 'react-draft-wysiwyg';
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
-import draftToHtml from 'draftjs-to-html';
-import { convertToRaw, EditorState } from 'draft-js';
 
+import EditorComponent from './components/editor.component';
 import style from './new.style';
 import store from './new.store';
 
@@ -16,7 +13,6 @@ class New extends Component {
   state = {
     newArticle: {},
     selectedCategories: [],
-    editorState: EditorState.createEmpty(),
     articleEditorToApi: ''
   }
 
@@ -40,13 +36,6 @@ class New extends Component {
     this.setState({ selectedCategories: nextSelectedCategory });
   }
 
-  handleChangeArticle = (editorState) => {
-    this.setState({
-      editorState,
-      articleEditorToApi: draftToHtml(convertToRaw(editorState.getCurrentContent()))
-    });
-  };
-
   componentDidMount() {
     this.mounted = true;
     this.props.loc.subscribe(this);
@@ -58,8 +47,8 @@ class New extends Component {
   };
 
   render() {
-    const { loc, classes } = this.props;
-    const { editorState, selectedCategories } = this.state;
+    const { loc } = this.props;
+    const { selectedCategories } = this.state;
     const locString = loc.strings.Articles.New_Articles;
     const locStringGlobal = loc.strings.Global;
     const CategoriesList = store.categories.map(item => item.Category);
@@ -79,15 +68,8 @@ class New extends Component {
               <DatePicker style={{ marginLeft: '7px' }} placeholder={locString.label.Publish} onChange={(date, formatedDate) => this.handleChangeDate(date, formatedDate, 'Publish')} />
             </Col>
           </Row>
-          <div style={{ border: '1px solid #e8e8e8', height: '418px' }}>
-            <Editor
-              id="Article"
-              editorState={editorState}
-              toolbarClassName="toolbarClassName"
-              wrapperClassName="wrapperClassName"
-              editorClassName={classes.editor}
-              onEditorStateChange={(editorState) => this.handleChangeArticle(editorState)}
-            />
+          <div>
+            <EditorComponent />
           </div>
           <Row style={{ marginTop: '8px' }}>
             <Col>
