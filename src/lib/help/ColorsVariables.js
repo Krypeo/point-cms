@@ -17,5 +17,9 @@ export const dangerColor = '#FF0000';
 export const exportColor = '#217346';
 
 // QUICK LINKS COLORS
-export const NewArticleColor = '#6200EE';
-export const UsersManagerColor = '#B00020';
+export const PurpleColor = '#6200EE';
+export const RedBloodColor = '#B00020';
+export const BlueLightColor = '#64B5F6';
+export const GreenBlueLightColor = '#009688';
+export const YellowDarkColor = '#AFB42B';
+export const DeepOrangeColor = '#FF5722';

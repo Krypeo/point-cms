@@ -93,7 +93,7 @@
       "User_Was_Logout": "User was successfully logout!",
       "User_Was_Login": "User was successfully login!",
       "Please_Check_The_Login": "Wrong login! Please check the login!",
-      "Administration_Login": "Administration login",
+      "Administration_Login": "Administration",
       "Reset_Forget_Password": "Reset forgot password",
       "Password_Was_Send": "Email for reset password was sent.",
       "Empty_Email_Or_Password": "Your email or password are empty!"

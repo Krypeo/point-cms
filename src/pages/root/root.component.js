@@ -18,7 +18,8 @@ class Root extends Component {
     firebase.auth().onAuthStateChanged((user) => this.setState({ uid: user.uid }));
     this.state = {
       user: false,
-      loading: true
+      loading: true,
+      uid: null
     }
   }
 
@@ -27,7 +28,7 @@ class Root extends Component {
   };
 
   autoContent = () => {
-    const { user, loading } = this.state;
+    const { user, loading, uid } = this.state;
 
     if (loading) {
       setTimeout(() => {
@@ -35,7 +36,7 @@ class Root extends Component {
       }, 2500);
       return (<LoadingComponent />)
     } else if (!loading && user) {
-      return (<MainLayoutComponent />)
+      return (<MainLayoutComponent uid={uid} />)
     } else if (!user) {
       return (<LoginComponent />)
     };
