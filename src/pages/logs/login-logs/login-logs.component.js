@@ -26,18 +26,19 @@ class LoginLogs extends Component {
 
   render() {
     const { loc, classes } = this.props;
+
     return (
       <div>
         <Table
-          dataSource={store.fullData}
-          columns={columns(this, loc.strings.Logs.Login, classes)}
-          pagination={{ pageSize: 20 }}
-          loading={store.loading}
+          dataSource={ store.fullData }
+          columns={ columns(this, loc.strings.Logs.Login, classes) }
+          pagination={ { pageSize: 20 } }
+          loading={ store.loading }
           size="small"
-          onChange={this.handleTableChange}
-          scroll={{ y: singleTableHeader }}
-          rowClassName={(row) => row.Success ? classes.successRow : classes.warningRow}
-          key={row => row.key}
+          onChange={ this.handleTableChange }
+          scroll={ { y: singleTableHeader } }
+          rowClassName={ (row) => row.Success ? classes.successRow : classes.warningRow }
+          key={ row => row.key }
           bordered
         />
       </div>

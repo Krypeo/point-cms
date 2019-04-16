@@ -18,7 +18,7 @@ class Users extends Component {
   handleInsert = () => {
     const locString = this.props.loc.strings.Management.Users_Management;
     const locStringGlobal = this.props.loc.strings.Global;
-    const roles = store.roles.map(item => ({ value: item.Identifier, text: item.Description }));
+    const roles = store.roles;
 
     const config = new ModularConfig()
       .string({ key: 'Uid', label: 'Uid' })
@@ -50,7 +50,7 @@ class Users extends Component {
   handleEdit = (row) => {
     const locString = this.props.loc.strings.Management.Users_Management;
     const locStringGlobal = this.props.loc.strings.Global;
-    const roles = store.roles.map(item => ({ value: item.Identifier, text: item.Description }));
+    const roles = store.roles;
 
     const config = new ModularConfig()
       .string({ key: 'Uid', label: 'Uid', defaultValue: row.Uid })
@@ -100,7 +100,6 @@ class Users extends Component {
   componentDidMount() {
     this.mounted = true;
     this.props.loc.subscribe(this);
-    store._refresh();
     store.refresh();
   }
   componentWillUnmount() {
@@ -114,14 +113,14 @@ class Users extends Component {
     return (
       <div>
         <Table
-          dataSource={store.fullData}
-          columns={columns(this, loc.strings.Management.Users_Management, classes)}
-          pagination={{ pageSize: 20 }}
-          loading={store.loading}
-          size={this.props.settings.tableSize}
-          onChange={this.handleTableChange}
-          scroll={{ y: singleTableHeader }}
-          key={row => row.key}
+          dataSource={ store.data }
+          columns={ columns(this, loc.strings.Management.Users_Management, classes) }
+          pagination={ { pageSize: 20 } }
+          loading={ store.loading }
+          size={ this.props.settings.tableSize }
+          onChange={ this.handleTableChange }
+          scroll={ { y: singleTableHeader } }
+          key={ row => row.key }
           bordered
         />
       </div>

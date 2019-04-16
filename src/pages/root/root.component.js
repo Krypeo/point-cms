@@ -33,7 +33,7 @@ class Root extends Component {
     if (loading) {
       setTimeout(() => {
         this.setState({ loading: false })
-      }, 2500);
+      }, 800);
       return (<LoadingComponent />)
     } else if (!loading && user) {
       return (<MainLayoutComponent uid={uid} />)
