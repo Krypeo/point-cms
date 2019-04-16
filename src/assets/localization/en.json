@@ -1,6 +1,10 @@
 {
   "Menu": {
     "Home": "Home",
+    "Pages": {
+      "Name": "Pages",
+      "Management": "Management"
+    },
     "Management": {
       "Name": "Management",
       "User_Management": "Users",

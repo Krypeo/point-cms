@@ -6,6 +6,8 @@ import NotFound from './not-found.component';
 // ROOT
 import Login_Component from './login.component';
 import Home_Component from '../home/home.component';
+// PAGES
+import Pages_ManagementComponent from '../pages/management/management.component';
 // MANAGEMENT
 import Users_Component from '../management/users/users.component';
 import UserRoles_Component from '../management/user-roles/user-roles.component';
@@ -26,6 +28,8 @@ class Routing extends Component {
       <Switch>
         <Route path="/" exact component={Home_Component} />
         <Route path="/login" exact component={Login_Component} />
+
+        <Route path="/pages/management" exact component={Pages_ManagementComponent} />
 
         <Route path="/management/users" exact component={Users_Component} />
         <Route path="/management/user-roles" exact component={UserRoles_Component} />

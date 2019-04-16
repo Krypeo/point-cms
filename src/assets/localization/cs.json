@@ -1,6 +1,10 @@
 {
   "Menu": {
     "Home": "Domů",
+    "Pages": {
+      "Name": "Stránky",
+      "Management": "Správa"
+    },
     "Management": {
       "Name": "Správa",
       "User_Management": "Uživatelé",
