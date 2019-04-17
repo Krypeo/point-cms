@@ -47,7 +47,7 @@ class LeftSideBarComponent extends Component {
           <Menu.Item key="home"><a href="/#/"><Icon type="home" /><span>{locStringMenu.Home}</span></a></Menu.Item>
 
           <SubMenu key="pages" title={<span><Icon type="file" /><span>{locStringMenu.Pages.Name}</span></span>}>
-            <Menu.Item key="pages-management">{<a href="/#/pages/management">{locStringMenu.Pages.Management}</a>}</Menu.Item>
+            <Menu.Item key="pages-all-pages">{<a href="/#/pages/all-pages">{locStringMenu.Pages.All_Pages}</a>}</Menu.Item>
           </SubMenu>
 
           <SubMenu key="management" title={<span><Icon type="tool" /><span>{locStringMenu.Management.Name}</span></span>}>

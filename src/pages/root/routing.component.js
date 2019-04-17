@@ -7,7 +7,7 @@ import NotFound from './not-found.component';
 import Login_Component from './login.component';
 import Home_Component from '../home/home.component';
 // PAGES
-import Pages_ManagementComponent from '../pages/management/management.component';
+import Pages_AllPagesComponent from '../pages/all-pages/all-pages.component';
 // MANAGEMENT
 import Users_Component from '../management/users/users.component';
 import UserRoles_Component from '../management/user-roles/user-roles.component';
@@ -26,24 +26,24 @@ class Routing extends Component {
   render() {
     return (
       <Switch>
-        <Route path="/" exact component={Home_Component} />
-        <Route path="/login" exact component={Login_Component} />
+        <Route path="/" exact component={ Home_Component } />
+        <Route path="/login" exact component={ Login_Component } />
 
-        <Route path="/pages/management" exact component={Pages_ManagementComponent} />
+        <Route path="/pages/all-pages" exact component={ Pages_AllPagesComponent } />
 
-        <Route path="/management/users" exact component={Users_Component} />
-        <Route path="/management/user-roles" exact component={UserRoles_Component} />
-        <Route path="/management/languages" exact component={Languages_Component} />
-        <Route path="/management/categories" exact component={Categories_Component} />
+        <Route path="/management/users" exact component={ Users_Component } />
+        <Route path="/management/user-roles" exact component={ UserRoles_Component } />
+        <Route path="/management/languages" exact component={ Languages_Component } />
+        <Route path="/management/categories" exact component={ Categories_Component } />
 
-        <Route path="/articles/overview" exact component={Overview_Component} />
-        <Route path="/articles/new" exact component={New_Component} />
+        <Route path="/articles/overview" exact component={ Overview_Component } />
+        <Route path="/articles/new" exact component={ New_Component } />
 
-        <Route path="/logs/login" exact component={LoginLogs_Component} />
+        <Route path="/logs/login" exact component={ LoginLogs_Component } />
 
-        <Route path="/questionnaires/overview" exact component={QuestionnairesOverview_Component} />
+        <Route path="/questionnaires/overview" exact component={ QuestionnairesOverview_Component } />
 
-        <Route component={NotFound} />
+        <Route component={ NotFound } />
       </Switch>
     )
   }

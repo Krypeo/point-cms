@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import injectSheet from 'react-jss';
 import { inject, observer } from 'mobx-react';
 
-// import store from './management.store';
-import style from './management.style';
-// import { columns } from './management.columns';
+// import store from './all-pages.store';
+import style from './all-pages.style';
+// import { columns } from './all-pages.columns';
 
 @inject('loc') @inject('settings') @observer
-class Management extends Component {
+class AllPages extends Component {
   render() {
     return (
       <div>Aloha!</div>
@@ -15,4 +15,4 @@ class Management extends Component {
   };
 };
 
-export default injectSheet(style)(Management);
+export default injectSheet(style)(AllPages);
